@@ -53,19 +53,20 @@ export function initHero3D(container, opts = {}) {
   renderer.domElement.style.height = '100%';
   renderer.domElement.style.display = 'block';
 
-  // lights
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xd2ddf2, 1.15));
+  // lights — enough contrast that the toon steps read as 3D form
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xcdd9f2, 1.15));
   const key = new THREE.DirectionalLight(0xffffff, 2.0);
   key.position.set(4, 9, 6); key.castShadow = true;
   key.shadow.mapSize.set(2048,2048);
   key.shadow.camera.near=1; key.shadow.camera.far=40;
   key.shadow.camera.left=-7; key.shadow.camera.right=7; key.shadow.camera.top=7; key.shadow.camera.bottom=-7;
-  key.shadow.bias=-0.0004; key.shadow.radius=6;
+  key.shadow.bias=-0.0004; key.shadow.radius=4;
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0x8fb4ff, 0.7); rim.position.set(-6,4,-5); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(-5,3,7); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0x9fc0ff, 0.6); rim.position.set(-6,4,-5); scene.add(rim);
 
-  // toon gradient
-  const grad = new Uint8Array([90,170,235,255]);
+  // toon gradient — clear shadow → light steps so the body has form
+  const grad = new Uint8Array([120,185,235,255]);
   const gradTex = new THREE.DataTexture(grad, grad.length, 1, THREE.RedFormat);
   gradTex.needsUpdate = true; gradTex.minFilter = gradTex.magFilter = THREE.NearestFilter;
 
@@ -111,7 +112,7 @@ export function initHero3D(container, opts = {}) {
       if (o.isMesh || o.isSkinnedMesh) {
         o.castShadow = true; o.frustumCulled = false;
         // brand recolor: clean off-white body, navy outline handles the form
-        o.material = new THREE.MeshToonMaterial({ color: 0xeef3ff, gradientMap: gradTex });
+        o.material = new THREE.MeshToonMaterial({ color: 0xdbe7ff, gradientMap: gradTex });
       }
     });
     // AUTO-FIT: scale to a target height, then plant feet on the phone screen
