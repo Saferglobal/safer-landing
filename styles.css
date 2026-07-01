@@ -392,6 +392,32 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
 .char-center { display: grid; place-items: center; margin: 8px auto 0; position: relative; }
 .char-center .char { width: clamp(220px, 30vw, 340px); }
 
+/* ---- Layered "scene": STATIC phone + character that moves in its own space ---- */
+.scene { position: relative; width: clamp(300px, 38vw, 460px); aspect-ratio: 1 / 1; margin-inline: auto; }
+.scene-blob { position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%); width: 84%; aspect-ratio: 1; border-radius: 50%; z-index: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(47,107,255,.16), transparent 68%); filter: blur(8px); animation: blob-pulse 6s ease-in-out infinite; }
+.scene-phone { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); width: 96%; height: auto; z-index: 1; }
+.scene-shadow { position: absolute; left: 49%; bottom: 30%; width: 30%; height: 4%; z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(16,35,63,.22), transparent 70%); transform: translateX(-50%); filter: blur(2px);
+  animation: shadow-breathe 1.15s ease-in-out infinite; }
+@keyframes shadow-breathe { 0%,50%,100% { transform: translateX(-50%) scaleX(1); opacity: .5; } 25%,75% { transform: translateX(-50%) scaleX(.86); opacity: .35; } }
+.scene-actor { position: absolute; left: 50%; bottom: 31%; width: 50%; z-index: 2; transform: translateX(-50%); transform-origin: 50% 100%; will-change: transform; }
+.scene-actor img { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 12px rgba(16,35,63,.10)); }
+/* walk-in-place: weight shift + bob + gentle step, feet stay on the phone */
+.actor-walk { animation: actor-walk 1.15s ease-in-out infinite; }
+@keyframes actor-walk {
+  0%   { transform: translateX(-50%) translateY(0)    rotate(-1.6deg); }
+  25%  { transform: translateX(-47%) translateY(-5px) rotate(0deg); }
+  50%  { transform: translateX(-50%) translateY(0)    rotate(1.6deg); }
+  75%  { transform: translateX(-53%) translateY(-5px) rotate(0deg); }
+  100% { transform: translateX(-50%) translateY(0)    rotate(-1.6deg); }
+}
+.actor-idle { animation: actor-idle 3.4s ease-in-out infinite; }
+@keyframes actor-idle {
+  0%,100% { transform: translateX(-50%) translateY(0) scale(1); }
+  50%     { transform: translateX(-50%) translateY(-8px) scale(1.012); }
+}
+
 /* ==========================================================================
    Logos / trust strip
    ========================================================================== */
