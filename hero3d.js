@@ -175,18 +175,10 @@ export function initHero3D(container, opts = {}) {
     const dt = clock.getDelta();
     tSec += dt;
     if (mixer) mixer.update(dt);
-    // No skeleton -> simulate a stroll: travel down the phone + step-bob + face travel dir
+    // Unrigged model -> stand still with only a subtle breath (NO sliding).
+    // Real stepping legs come from the rigged file; her walk clip drives it via `animated`.
     if (charModel && !animated) {
-      const speed = 0.5;
-      const z = Math.sin(tSec * speed) * 1.9;          // walk back & forth along the route
-      const vz = Math.cos(tSec * speed);               // +ve = heading one way
-      charModel.position.z = 0.1 + z;
-      charModel.position.y = charBaseY + Math.abs(Math.sin(tSec * 3.4)) * 0.06;  // step bob
-      charModel.position.x = Math.sin(tSec * 3.4) * 0.05;                         // slight sway
-      const target = walkFace + (vz >= 0 ? 0 : Math.PI);
-      let dA = target - charModel.rotation.y;
-      while (dA > Math.PI) dA -= Math.PI * 2; while (dA < -Math.PI) dA += Math.PI * 2;
-      charModel.rotation.y += dA * 0.12;               // smoothly turn at each end
+      charModel.position.set(0, charBaseY + Math.sin(tSec * 1.5) * 0.02, 0.1);
     }
     // live-location ping pulses under her feet
     { const p = (tSec % 1.6) / 1.6;
