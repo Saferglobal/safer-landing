@@ -307,8 +307,8 @@
   <script type="module">
     const box = document.getElementById('walk3d');
     if (box && window.WebGLRenderingContext) {
-      import('./hero3d.js?v=15')
-        .then(({ initHero3D }) => initHero3D(box, { model: 'assets/woman.glb', targetHeight: 2.15, onReady: () => box.classList.add('ready') }))
+      import('./hero3d.js?v=16')
+        .then(({ initHero3D }) => initHero3D(box, { model: 'assets/woman-walk.fbx', targetHeight: 2.15, onReady: () => box.classList.add('ready') }))
         .catch((e) => console.error('[hero3d] failed, keeping 2D fallback', e));
     }
   </script>

@@ -111,14 +111,13 @@ export function initHero3D(container, opts = {}) {
 
   // character
   let mixer = null, charModel = null, charBaseY = 0, animated = false;
-  const loader = new GLTFLoader();
-  loader.setMeshoptDecoder(MeshoptDecoder);
-  loader.load(modelURL, (gltf) => {
-    const model = gltf.scene;
+
+  // shared: cel-shade, auto-fit onto the phone, and play the walk clip in place
+  function processModel(model, animations) {
     model.traverse(o => {
       if (o.isMesh || o.isSkinnedMesh) {
         o.castShadow = true; o.frustumCulled = false;
-        const src = o.material;
+        const src = Array.isArray(o.material) ? o.material[0] : o.material;
         // cel-shade: keep her real texture if she has one, else a clean brand tint
         o.material = new THREE.MeshToonMaterial({
           map: src && src.map ? src.map : null,
@@ -140,11 +139,27 @@ export function initHero3D(container, opts = {}) {
     root.add(model);
     outline.selectedObjects = [model];
     mixer = new THREE.AnimationMixer(model);
-    const names = ['Walk','Walking','walk','Run','run'];
-    const walk = names.map(n => THREE.AnimationClip.findByName(gltf.animations, n)).find(Boolean) || gltf.animations[0];
-    if (walk) { mixer.clipAction(walk).play(); animated = true; }
+    const names = ['Walk','Walking','walk','Run','run','mixamo.com','Armature|mixamo.com'];
+    const walk = names.map(n => THREE.AnimationClip.findByName(animations, n)).find(Boolean) || (animations && animations[0]);
+    if (walk) {
+      // strip root translation so she steps IN PLACE on the phone (no drift/snap)
+      walk.tracks = walk.tracks.filter(t => !/\.position$/.test(t.name));
+      mixer.clipAction(walk).play();
+      animated = true;
+    }
     if (opts.onReady) opts.onReady();
-  }, undefined, (e) => { if (opts.onError) opts.onError(e); console.error('[hero3d]', e); });
+  }
+
+  const onErr = (e) => { if (opts.onError) opts.onError(e); console.error('[hero3d]', e); };
+  if (/\.fbx($|\?)/i.test(modelURL)) {
+    import('three/addons/loaders/FBXLoader.js').then(({ FBXLoader }) => {
+      new FBXLoader().load(modelURL, (obj) => processModel(obj, obj.animations), undefined, onErr);
+    }).catch(onErr);
+  } else {
+    const loader = new GLTFLoader();
+    loader.setMeshoptDecoder(MeshoptDecoder);
+    loader.load(modelURL, (gltf) => processModel(gltf.scene, gltf.animations), undefined, onErr);
+  }
 
   // sizing
   function resize() {
