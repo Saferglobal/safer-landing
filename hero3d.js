@@ -104,15 +104,20 @@ export function initHero3D(container, opts = {}) {
   composer.addPass(new OutputPass());
 
   // character
-  let mixer = null;
+  let mixer = null, charModel = null, charBaseY = 0, animated = false;
   const loader = new GLTFLoader();
   loader.load(modelURL, (gltf) => {
     const model = gltf.scene;
     model.traverse(o => {
       if (o.isMesh || o.isSkinnedMesh) {
         o.castShadow = true; o.frustumCulled = false;
-        // brand recolor: clean off-white body, navy outline handles the form
-        o.material = new THREE.MeshToonMaterial({ color: 0xdbe7ff, gradientMap: gradTex });
+        const src = o.material;
+        // cel-shade: keep her real texture if she has one, else a clean brand tint
+        o.material = new THREE.MeshToonMaterial({
+          map: src && src.map ? src.map : null,
+          color: src && src.map ? 0xffffff : 0xdbe7ff,
+          gradientMap: gradTex
+        });
       }
     });
     // AUTO-FIT: scale to a target height, then plant feet on the phone screen
@@ -124,12 +129,13 @@ export function initHero3D(container, opts = {}) {
     model.updateMatrixWorld(true);
     const box1 = new THREE.Box3().setFromObject(model);
     model.position.set(0, 0.19 - box1.min.y, 0.1);
+    charModel = model; charBaseY = model.position.y;
     root.add(model);
     outline.selectedObjects = [model];
     mixer = new THREE.AnimationMixer(model);
-    const names = ['Walk','Walking','walk','Run'];
+    const names = ['Walk','Walking','walk','Run','run'];
     const walk = names.map(n => THREE.AnimationClip.findByName(gltf.animations, n)).find(Boolean) || gltf.animations[0];
-    if (walk) mixer.clipAction(walk).play();
+    if (walk) { mixer.clipAction(walk).play(); animated = true; }
     if (opts.onReady) opts.onReady();
   }, undefined, (e) => { if (opts.onError) opts.onError(e); console.error('[hero3d]', e); });
 
@@ -157,11 +163,14 @@ export function initHero3D(container, opts = {}) {
   const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0.01 });
   io.observe(container);
 
-  let baseSpin = -0.5;
+  let baseSpin = -0.5, tSec = 0;
   renderer.setAnimationLoop(() => {
     if (!visible) return;
     const dt = clock.getDelta();
+    tSec += dt;
     if (mixer) mixer.update(dt);
+    // if she has no walk clip, give a soft "alive" breathing bob
+    if (charModel && !animated) charModel.position.y = charBaseY + Math.sin(tSec * 1.9) * 0.035;
     baseSpin += dt * 0.12;                       // gentle idle rotation
     root.rotation.y += ( (-0.5 + Math.sin(baseSpin)*0.28 + tx) - root.rotation.y ) * 0.05;
     root.rotation.x += ( (ty*0.4) - root.rotation.x ) * 0.05;
