@@ -36,12 +36,12 @@ function makeScreenTexture() {
 }
 
 export function initHero3D(container, opts = {}) {
-  const modelURL = opts.model || 'assets/robot.glb';
+  const modelURL = opts.model || 'assets/woman.glb';
   const scene = new THREE.Scene();
 
-  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-  camera.position.set(2.6, 3.9, 7.6);
-  camera.lookAt(0, 0.85, 0);
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  camera.position.set(3.4, 4.6, 10.4);
+  camera.lookAt(0, 0.7, 0);
 
   const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -97,7 +97,7 @@ export function initHero3D(container, opts = {}) {
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
   const outline = new OutlinePass(new THREE.Vector2(1,1), scene, camera);
-  outline.edgeStrength = 5.0; outline.edgeGlow = 0.0; outline.edgeThickness = 1.2;
+  outline.edgeStrength = 6.5; outline.edgeGlow = 0.0; outline.edgeThickness = 2.2;
   outline.visibleEdgeColor.set('#0a1f44'); outline.hiddenEdgeColor.set('#0a1f44');
   composer.addPass(outline);
   composer.addPass(new OutputPass());
@@ -107,21 +107,28 @@ export function initHero3D(container, opts = {}) {
   const loader = new GLTFLoader();
   loader.load(modelURL, (gltf) => {
     const model = gltf.scene;
-    model.scale.setScalar(0.36);
-    model.position.set(0, 0.2, 0.1);
-    model.rotation.y = Math.PI * 0.60;
     model.traverse(o => {
-      if (o.isMesh) {
-        o.castShadow = true;
+      if (o.isMesh || o.isSkinnedMesh) {
+        o.castShadow = true; o.frustumCulled = false;
         // brand recolor: clean off-white body, navy outline handles the form
-        o.material = new THREE.MeshToonMaterial({ color: 0xeaf1ff, gradientMap: gradTex });
+        o.material = new THREE.MeshToonMaterial({ color: 0xeef3ff, gradientMap: gradTex });
       }
     });
+    // AUTO-FIT: scale to a target height, then plant feet on the phone screen
+    model.rotation.y = opts.rotY ?? (Math.PI * 0.58);
+    model.updateMatrixWorld(true);
+    const box0 = new THREE.Box3().setFromObject(model);
+    const h = (box0.max.y - box0.min.y) || 1;
+    model.scale.setScalar((opts.targetHeight ?? 1.5) / h);
+    model.updateMatrixWorld(true);
+    const box1 = new THREE.Box3().setFromObject(model);
+    model.position.set(0, 0.19 - box1.min.y, 0.1);
     root.add(model);
     outline.selectedObjects = [model];
     mixer = new THREE.AnimationMixer(model);
-    const walk = THREE.AnimationClip.findByName(gltf.animations, 'Walking') || gltf.animations[0];
-    mixer.clipAction(walk).play();
+    const names = ['Walk','Walking','walk','Run'];
+    const walk = names.map(n => THREE.AnimationClip.findByName(gltf.animations, n)).find(Boolean) || gltf.animations[0];
+    if (walk) mixer.clipAction(walk).play();
     if (opts.onReady) opts.onReady();
   }, undefined, (e) => { if (opts.onError) opts.onError(e); console.error('[hero3d]', e); });
 

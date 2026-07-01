@@ -53,9 +53,9 @@
   <div id="app"></div>
 
   <script type="module">
-    import { initHero3D } from './hero3d.js';
+    import { initHero3D } from './hero3d.js?v=7';
     initHero3D(document.getElementById('app'), {
-      model: 'assets/robot.glb',
+      model: 'assets/woman.glb',
       onReady: () => { document.getElementById('loading').style.display = 'none'; },
       onError: () => { document.getElementById('loading').style.display='none'; document.getElementById('err').style.display='grid'; }
     });
