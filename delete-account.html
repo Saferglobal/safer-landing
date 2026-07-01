@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account — Safer</title>
+  <meta name="description" content="Permanently delete your Safer account and data." />
+  <meta name="theme-color" content="#2f6bff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/orb.png" />
+  <link rel="apple-touch-icon" href="assets/orb.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Safer home">
+        <img class="orb" src="assets/orb.png" alt="" width="40" height="40" />
+        Safer
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html#watch-me" class="nav-link">How Safer Works</a></li>
+        <li class="nav-item"><a href="index.html#situations" class="nav-link">Real Situations</a></li>
+        <li class="nav-item">
+          <a href="faq.html" class="nav-link">Resources
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a class="drop-link" href="faq.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.5 1.5c0 1.5-2 2-2 3.5"/><path d="M12 17h.01"/></svg></span><span class="drop-txt"><strong>Common Questions</strong></span></a>
+            <a class="drop-link" href="privacy.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="drop-txt"><strong>Privacy Policy</strong></span></a>
+            <a class="drop-link" href="terms.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3"/><path d="M9 3h6v4H9z"/></svg></span><span class="drop-txt"><strong>Terms of Use</strong></span></a>
+            <a class="drop-link" href="safety-disclaimer.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span class="drop-txt"><strong>Safety Disclaimer</strong></span></a>
+            <a class="drop-link" href="contact.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.5z"/></svg></span><span class="drop-txt"><strong>Contact Us</strong></span></a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#notify" class="btn btn--primary nav-cta">Get Early Access</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-panel">
+      <div class="mm-head">
+        <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="36" height="36" />Safer</span>
+        <button class="icon-btn" id="mmClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="mm-group"><a href="index.html#watch-me" style="font-weight:700;color:var(--blue-900)">How Safer Works</a></div>
+      <div class="mm-group"><a href="index.html#situations" style="font-weight:700;color:var(--blue-900)">Real Situations</a></div>
+      <details class="mm-group">
+        <summary>Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <a href="faq.html">Common Questions</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="safety-disclaimer.html">Safety Disclaimer</a><a href="contact.html">Contact</a>
+      </details>
+      <div class="mm-actions">
+        <a href="index.html#notify" class="btn btn--primary btn--lg">Get Early Access</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Support</span>
+        <h1>Delete Your Account</h1>
+        <p>You can permanently delete your Safer account and associated data at any time.</p>
+      </div>
+    </section>
+    <div class="container">
+      <div class="doc">
+        <p>We believe your safety data belongs to you. You can request permanent deletion of your Safer account and all associated data whenever you like.</p>
+
+        <h2>How to delete your account</h2>
+        <h3>Option 1 — In the app</h3>
+        <ul>
+          <li>Open Safer and go to <strong>Settings</strong>.</li>
+          <li>Tap <strong>Account</strong>, then <strong>Delete Account</strong>.</li>
+          <li>Confirm. Your account and data are permanently removed.</li>
+        </ul>
+        <h3>Option 2 — By email</h3>
+        <p>Send a deletion request using the form below, or email <a href="mailto:support@safer.global?subject=Delete%20my%20Safer%20account">support@safer.global</a> from the address associated with your account. We'll confirm and complete the deletion.</p>
+
+        <h2>What gets deleted</h2>
+        <ul>
+          <li>Your profile, name, email, and photo.</li>
+          <li>Your trusted contacts and circle settings.</li>
+          <li>Your location history, Watch Me sessions, and emergency event records.</li>
+          <li>Your chat conversations and any stored audio.</li>
+        </ul>
+
+        <div class="info-callout">
+          <p>Deletion is permanent and cannot be undone. Some records may be retained only where required by law, and are then deleted once no longer required.</p>
+        </div>
+
+        <h2>Request account deletion</h2>
+        <div class="form-card" style="max-width:560px">
+          <form data-demo action="mailto:support@safer.global?subject=Delete%20my%20Safer%20account" method="post" enctype="text/plain">
+            <div class="field">
+              <label for="d-email">Account email</label>
+              <input type="email" id="d-email" name="email" required placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="d-reason">Reason (optional)</label>
+              <textarea id="d-reason" name="reason" placeholder="Anything you'd like us to know"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg" style="width:100%">Request deletion</button>
+            <p class="form-note" hidden role="status" style="background:var(--blue-050);border-color:var(--blue-100);color:var(--blue-700)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Your request is ready to send from your email app. We'll confirm within 30 days.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="40" height="40" />Safer</span>
+          <p>Personal safety, built around the people you trust. Alert, locate, and share real-time context when every second matters.</p>
+          <span class="coming-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.7zM14.2 6.3c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.8 1 .1 2-.5 2.7-1.3z"/></svg>
+            <span><small>Coming soon on</small><strong>iOS App Store</strong></span>
+          </span>
+          <p style="margin-top:16px"><a href="index.html#notify" style="color:#cfe0ff;font-weight:700">Join the waitlist &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="index.html#watch-me">How Safer Works</a>
+          <a href="index.html#situations">Real Situations</a>
+          <a href="index.html#notify">Get Early Access</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="faq.html">Common Questions</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="delete-account.html">Delete Account</a>
+          <a href="data-request.html">Data Request</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="safety-disclaimer.html">Safety Disclaimer</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span><strong>Important:</strong> Safer is a personal safety communication tool and is not a replacement for emergency services, medical, or law-enforcement response. In a life-threatening emergency, always call your local emergency number (such as 911) first.</span>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Safer Global. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="mailto:support@safer.global" aria-label="Email support@safer.global"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a>
+          <a href="contact.html" aria-label="Contact us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

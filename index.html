@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safer — When something happens, every second matters.</title>
+  <meta name="description" content="Safer helps you connect with the people you care about, share what's happening, and give them the context they need to respond faster in real time." />
+  <meta name="theme-color" content="#2f6bff" />
+  <meta property="og:title" content="Safer — When something happens, every second matters." />
+  <meta property="og:description" content="Reach the right people faster when it matters most. A personal safety communication tool." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/orb.png" />
+  <link rel="apple-touch-icon" href="assets/orb.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Safer home">
+        <img class="orb" src="assets/orb.png" alt="" width="40" height="40" />
+        Safer
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#watch-me" class="nav-link">How Safer Works</a></li>
+        <li class="nav-item"><a href="#situations" class="nav-link">Real Situations</a></li>
+        <li class="nav-item">
+          <a href="faq.html" class="nav-link">Resources
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a class="drop-link" href="faq.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.5 1.5c0 1.5-2 2-2 3.5"/><path d="M12 17h.01"/></svg></span><span class="drop-txt"><strong>Common Questions</strong></span></a>
+            <a class="drop-link" href="privacy.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="drop-txt"><strong>Privacy Policy</strong></span></a>
+            <a class="drop-link" href="safety-disclaimer.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span class="drop-txt"><strong>Safety Disclaimer</strong></span></a>
+            <a class="drop-link" href="contact.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.5z"/></svg></span><span class="drop-txt"><strong>Contact Us</strong></span></a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="faq.html" class="icon-btn acct" aria-label="Help &amp; common questions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.5 1.5c0 1.5-2 2-2 3.5"/><path d="M12 17h.01"/></svg>
+        </a>
+        <a href="#notify" class="btn btn--primary nav-cta">Get Early Access</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-panel">
+      <div class="mm-head">
+        <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="36" height="36" />Safer</span>
+        <button class="icon-btn" id="mmClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="mm-group"><a href="#watch-me" style="font-weight:700;color:var(--blue-900)">How Safer Works</a></div>
+      <div class="mm-group"><a href="#situations" style="font-weight:700;color:var(--blue-900)">Real Situations</a></div>
+      <details class="mm-group">
+        <summary>Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <a href="faq.html">Common Questions</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="safety-disclaimer.html">Safety Disclaimer</a><a href="contact.html">Contact</a>
+      </details>
+      <div class="mm-actions">
+        <a href="#notify" class="btn btn--primary btn--lg">Get Early Access</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================= SLIDE 1 — HERO ================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+            Coming soon on iOS
+          </span>
+          <h1 class="h-hero">When something happens, every second matters.</h1>
+          <p class="lead">Safer helps you connect with the people you care about, share what's happening, and give them the context they need to respond faster in real time.</p>
+          <div class="hero-cta">
+            <a href="#notify" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              Get Early Access
+            </a>
+            <a href="#watch-me" class="btn btn--ghost btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z"/></svg>
+              See how it works
+            </a>
+          </div>
+          <p class="hero-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg>
+            Safer is a safety communication tool and is not a replacement for emergency services.
+          </p>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="glow"></div>
+          <div class="float-card fc-1">
+            <span class="fc-ic" style="background:rgba(31,179,122,.14);color:#1fb37a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><small>Watch Me</small><strong>Session active</strong></div>
+          </div>
+          <div class="float-card fc-2">
+            <span class="fc-ic" style="background:rgba(47,107,255,.14);color:#2f6bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg></span>
+            <div><small>Live location</small><strong>Shared with 3</strong></div>
+          </div>
+          <div class="float-card fc-3">
+            <span class="fc-ic" style="background:rgba(255,107,87,.14);color:#ff6b57"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><small>Trusted circle</small><strong>Alerted instantly</strong></div>
+          </div>
+          <div class="char-wrap" data-char>
+            <img class="char char--breathe" src="assets/char-resting.png" alt="A person relaxed and safe, connected with the people they care about through Safer" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 2 — NEVER WALK ALONE ================= -->
+    <section class="section section--tint" id="walk">
+      <div class="container split reveal">
+        <div class="split-copy">
+          <span class="eyebrow">Walk with Safer</span>
+          <h2 class="h-2">Never walk alone.</h2>
+          <p class="lead">Heading home late, walking somewhere unfamiliar, or simply feeling uneasy? Start Watch Me and let Safer keep your trusted people connected with your live location and real-time context.</p>
+          <div class="split-actions">
+            <a href="#watch-me" class="btn btn--ghost">See how Watch Me works</a>
+            <a href="#notify" class="btn btn--primary">Get Early Access</a>
+          </div>
+        </div>
+        <div class="split-media">
+          <div class="char-stage">
+            <div class="char-blob"></div>
+            <div class="char-wrap from-left" data-char>
+              <img class="char char--walk" src="assets/char-watchme.png" alt="A woman walking alone at night, kept connected by Safer Watch Me" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 3 — REAL SITUATIONS ================= -->
+    <section class="section" id="situations">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Real situations</span>
+          <h2 class="h-2">Our lives are full of different situations.</h2>
+        </div>
+        <div class="sit-cards">
+          <div class="sit-card reveal">
+            <div class="sit-fig"><img class="char--breathe" src="assets/sit-walk.png" alt="A woman walking home alone at night, connected with Safer" loading="lazy" /></div>
+            <p>Walking home alone late at night</p>
+          </div>
+          <div class="sit-card reveal">
+            <div class="sit-fig"><img class="char--sway" src="assets/sit-uneasy.png" alt="A man sensing something feels off, checking Safer" loading="lazy" /></div>
+            <p>Something feels off and you don't know why</p>
+          </div>
+          <div class="sit-card reveal">
+            <div class="sit-fig"><img class="char--breathe" src="assets/sit-kids.png" alt="Two kids walking home from school" loading="lazy" /></div>
+            <p>Your kids heading back from school</p>
+          </div>
+          <div class="sit-card reveal">
+            <div class="sit-fig"><img class="char--breathe" src="assets/sit-run.png" alt="A woman on a solo run with no one around" loading="lazy" /></div>
+            <p>A solo hike, a late run, or a surf session with no one around</p>
+          </div>
+          <div class="sit-card reveal">
+            <div class="sit-fig"><img class="char--sway" src="assets/sit-elderly.png" alt="An elderly parent living alone, watched over with Safer" loading="lazy" /></div>
+            <p>Your elderly parent living alone, and you worry every night</p>
+          </div>
+        </div>
+        <p class="sit-note reveal">When something happens, there is no time to waste.</p>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 4 — AI WATCH ME ================= -->
+    <section class="section section--warm" id="watch-me">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">AI Watch Me Mode</span>
+          <h2 class="h-2">During the moments that matter most, set Safer to AI Watch Me Mode.</h2>
+          <p class="lead">When you feel in danger, you should not need to explain everything.</p>
+        </div>
+
+        <div class="char-center reveal">
+          <div class="char-wrap" data-char>
+            <img class="char char--breathe" src="assets/char-ai.png" alt="A woman calmly talking to Safer's AI, which turns her signal into a clear alert" />
+          </div>
+        </div>
+
+        <div class="triggers reveal">
+          <span class="trigger"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10a7 7 0 0 1-14 0"/><path d="M12 19v3"/></svg></span>Say your secret word</span>
+          <span class="trigger"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 6h2"/></svg></span>Shake your phone</span>
+          <span class="trigger"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>Tap SOS</span>
+          <span class="trigger"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></span>Or simply talk to Safer</span>
+        </div>
+
+        <div class="watch-lines reveal">
+          <p>Safer can alert the right people, share your live location, and provide real-time context to support a faster response.</p>
+          <p>Even if you are stressed, confused, or not sure what to do, Safer helps turn your signal into a clear alert.</p>
+        </div>
+
+        <div class="mission reveal">
+          <span class="eyebrow">Safer's mission is simple</span>
+          <h3>Help you reach the right people faster when it matters most.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WAITLIST ================= -->
+    <section class="section" id="notify">
+      <div class="container">
+        <div class="cta-final reveal">
+          <span class="coming-badge" style="margin-bottom:22px">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.7zM14.2 6.3c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.8 1 .1 2-.5 2.7-1.3z"/></svg>
+            <span><small>Soon on the</small><strong>App Store</strong></span>
+            <span class="soon">iOS</span>
+          </span>
+          <h2 class="h-2">Reach the right people faster.</h2>
+          <p>Safer is launching on iPhone. Join the waitlist and we'll notify you the moment it's ready to download — plus early access for you and your trusted circle.</p>
+          <form class="notify-form" data-demo action="mailto:support@safer.global" method="post" enctype="text/plain">
+            <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email address" />
+            <button type="submit" class="btn btn--lg" style="background:#fff;color:var(--blue-700)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              Notify me
+            </button>
+          </form>
+          <p class="form-note" hidden role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            You're on the list — we'll email you the moment Safer launches on iOS.
+          </p>
+          <p class="notify-sub">iPhone &amp; iOS first. No spam, just one launch email. Unsubscribe anytime.</p>
+          <p class="disclaimer-line">Safer is a safety communication tool and is not a replacement for emergency services. In a life-threatening emergency, always call your local emergency number.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="40" height="40" />Safer</span>
+          <p>Reach the right people faster when it matters most. Alert, locate, and share real-time context with the people you care about.</p>
+          <span class="coming-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.7zM14.2 6.3c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.8 1 .1 2-.5 2.7-1.3z"/></svg>
+            <span><small>Coming soon on</small><strong>iOS App Store</strong></span>
+          </span>
+          <p style="margin-top:16px"><a href="#notify" style="color:#cfe0ff;font-weight:700">Join the waitlist &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#watch-me">How Safer Works</a>
+          <a href="#situations">Real Situations</a>
+          <a href="#notify">Get Early Access</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="faq.html">Common Questions</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="delete-account.html">Delete Account</a>
+          <a href="data-request.html">Data Request</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="safety-disclaimer.html">Safety Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span><strong>Important:</strong> Safer is a personal safety communication tool and is not a replacement for emergency services, medical, or law-enforcement response. In a life-threatening emergency, always call your local emergency number (such as 911) first.</span>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Safer Global. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="mailto:support@safer.global" aria-label="Email support@safer.global"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a>
+          <a href="contact.html" aria-label="Contact us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
