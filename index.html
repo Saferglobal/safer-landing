@@ -15,6 +15,14 @@
   <link rel="icon" type="image/png" href="assets/orb.png" />
   <link rel="apple-touch-icon" href="assets/orb.png" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -134,8 +142,7 @@
           </div>
         </div>
         <div class="split-media">
-          <div class="walk-stage" aria-hidden="true">
-            <div class="glow"></div>
+          <div class="hero3d" id="walk3d" aria-label="A character walking on a phone, in 3D">
             <div class="float-card wc-1">
               <span class="fc-ic" style="background:rgba(31,179,122,.14);color:#1fb37a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></span>
               <div><small>Watch Me</small><strong>On my way home</strong></div>
@@ -144,7 +151,7 @@
               <span class="fc-ic" style="background:rgba(47,107,255,.14);color:#2f6bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg></span>
               <div><small>Live location</small><strong>Shared with 3</strong></div>
             </div>
-            <img class="walk-char" src="assets/char-watchme.png" alt="A woman walking safely, kept connected by Safer Watch Me" />
+            <img class="hero3d-fallback" src="assets/char-watchme.png" alt="A woman walking safely, kept connected by Safer Watch Me" />
           </div>
         </div>
       </div>
@@ -296,5 +303,13 @@
   </footer>
 
   <script src="main.js"></script>
+  <script type="module">
+    const box = document.getElementById('walk3d');
+    if (box && window.WebGLRenderingContext) {
+      import('./hero3d.js?v=10')
+        .then(({ initHero3D }) => initHero3D(box, { model: 'assets/woman.glb', targetHeight: 2.15, onReady: () => box.classList.add('ready') }))
+        .catch((e) => console.error('[hero3d] failed, keeping 2D fallback', e));
+    }
+  </script>
 </body>
 </html>
