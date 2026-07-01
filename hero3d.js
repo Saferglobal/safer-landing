@@ -94,6 +94,11 @@ export function initHero3D(container, opts = {}) {
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(50,50), new THREE.ShadowMaterial({ opacity:0.16 }));
   ground.rotation.x = -Math.PI/2; ground.position.y = -0.16; ground.receiveShadow = true; scene.add(ground);
 
+  // live-location ping — a ring that pulses under her feet ("Watch Me is tracking her")
+  const pingMat = new THREE.MeshBasicMaterial({ color:0x2f6bff, transparent:true, opacity:0.5, side:THREE.DoubleSide, depthWrite:false });
+  const ping = new THREE.Mesh(new THREE.RingGeometry(0.30, 0.40, 44), pingMat);
+  ping.rotation.x = -Math.PI/2; ping.position.y = 0.185; root.add(ping);
+
   // post
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
@@ -163,17 +168,34 @@ export function initHero3D(container, opts = {}) {
   const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0.01 });
   io.observe(container);
 
-  let baseSpin = -0.5, tSec = 0;
+  let tSec = 0;
+  const walkFace = opts.walkFace ?? 0;   // facing that points ALONG the phone's length
   renderer.setAnimationLoop(() => {
     if (!visible) return;
     const dt = clock.getDelta();
     tSec += dt;
     if (mixer) mixer.update(dt);
-    // if she has no walk clip, give a soft "alive" breathing bob
-    if (charModel && !animated) charModel.position.y = charBaseY + Math.sin(tSec * 1.9) * 0.035;
-    baseSpin += dt * 0.12;                       // gentle idle rotation
-    root.rotation.y += ( (-0.5 + Math.sin(baseSpin)*0.28 + tx) - root.rotation.y ) * 0.05;
-    root.rotation.x += ( (ty*0.4) - root.rotation.x ) * 0.05;
+    // No skeleton -> simulate a stroll: travel down the phone + step-bob + face travel dir
+    if (charModel && !animated) {
+      const speed = 0.5;
+      const z = Math.sin(tSec * speed) * 1.9;          // walk back & forth along the route
+      const vz = Math.cos(tSec * speed);               // +ve = heading one way
+      charModel.position.z = 0.1 + z;
+      charModel.position.y = charBaseY + Math.abs(Math.sin(tSec * 3.4)) * 0.06;  // step bob
+      charModel.position.x = Math.sin(tSec * 3.4) * 0.05;                         // slight sway
+      const target = walkFace + (vz >= 0 ? 0 : Math.PI);
+      let dA = target - charModel.rotation.y;
+      while (dA > Math.PI) dA -= Math.PI * 2; while (dA < -Math.PI) dA += Math.PI * 2;
+      charModel.rotation.y += dA * 0.12;               // smoothly turn at each end
+    }
+    // live-location ping pulses under her feet
+    { const p = (tSec % 1.6) / 1.6;
+      if (charModel) { ping.position.x = charModel.position.x; ping.position.z = charModel.position.z; }
+      ping.scale.setScalar(0.6 + p * 2.4); pingMat.opacity = 0.5 * (1 - p);
+    }
+    // hold a flattering fixed camera angle (no idle spin) + subtle pointer parallax
+    root.rotation.y += ( (-0.5 + tx * 0.5) - root.rotation.y ) * 0.05;
+    root.rotation.x += ( (ty * 0.3) - root.rotation.x ) * 0.05;
     composer.render();
   });
 
