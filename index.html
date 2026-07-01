@@ -15,6 +15,14 @@
   <link rel="icon" type="image/png" href="assets/orb.png" />
   <link rel="apple-touch-icon" href="assets/orb.png" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -134,13 +142,8 @@
           </div>
         </div>
         <div class="split-media">
-          <div class="scene">
-            <div class="scene-blob"></div>
-            <img class="scene-phone" src="assets/phone-base.png" alt="" />
-            <div class="scene-shadow"></div>
-            <div class="scene-actor actor-walk">
-              <img src="assets/walk-actor.png" alt="A woman walking safely on her phone, kept connected by Safer Watch Me" />
-            </div>
+          <div class="hero3d" id="walk3d" aria-label="A character walking on a phone, in 3D">
+            <img class="hero3d-fallback" src="assets/char-watchme.png" alt="A woman walking safely, kept connected by Safer Watch Me" />
           </div>
         </div>
       </div>
@@ -292,5 +295,13 @@
   </footer>
 
   <script src="main.js"></script>
+  <script type="module">
+    const box = document.getElementById('walk3d');
+    if (box && window.WebGLRenderingContext) {
+      import('./hero3d.js')
+        .then(({ initHero3D }) => initHero3D(box, { model: 'assets/robot.glb', onReady: () => box.classList.add('ready') }))
+        .catch((e) => console.error('[hero3d] failed, keeping 2D fallback', e));
+    }
+  </script>
 </body>
 </html>

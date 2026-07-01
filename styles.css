@@ -392,6 +392,13 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
 .char-center { display: grid; place-items: center; margin: 8px auto 0; position: relative; }
 .char-center .char { width: clamp(220px, 30vw, 340px); }
 
+/* ---- 3D hero container ---- */
+.hero3d { position: relative; width: 100%; max-width: 540px; aspect-ratio: 1 / 1; margin-inline: auto; }
+.hero3d canvas { position: absolute; inset: 0; border-radius: var(--r-lg); }
+.hero3d-fallback { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 74%; height: auto; z-index: 1;
+  transition: opacity .5s ease; }
+.hero3d.ready .hero3d-fallback { opacity: 0; visibility: hidden; }
+
 /* ---- Layered "scene": STATIC phone + character that moves in its own space ---- */
 .scene { position: relative; width: clamp(300px, 38vw, 460px); aspect-ratio: 1 / 1; margin-inline: auto; }
 .scene-blob { position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%); width: 84%; aspect-ratio: 1; border-radius: 50%; z-index: 0;

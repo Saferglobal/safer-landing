@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safer — 3D preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{--blue-900:#0a1f44;--blue-600:#2f6bff;--ink-soft:#5a6784;--line:#e6e9f0}
+    *{margin:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,-apple-system,sans-serif;background:
+      radial-gradient(1000px 520px at 78% -6%, rgba(79,131,255,.22), transparent 60%),
+      radial-gradient(760px 460px at 8% 12%, rgba(255,107,87,.08), transparent 58%),
+      linear-gradient(180deg,#ffffff,#f2f6ff);
+      overflow:hidden;color:var(--blue-900)}
+    #app{position:fixed;inset:0}
+    canvas{display:block}
+    .overlay{position:fixed;left:0;right:0;top:0;padding:22px 26px;pointer-events:none;z-index:5}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+      border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--blue-600);
+      box-shadow:0 8px 24px rgba(16,35,63,.10)}
+    .badge .dot{width:8px;height:8px;border-radius:50%;background:#1fb37a}
+    .copy{position:fixed;left:6vw;top:50%;transform:translateY(-50%);max-width:420px;z-index:4;pointer-events:none}
+    .copy .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--blue-600);background:#e7efff;padding:6px 13px;border-radius:999px;margin-bottom:16px}
+    .copy h1{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin-bottom:14px}
+    .copy p{color:var(--ink-soft);font-size:1.05rem}
+    .hint{position:fixed;bottom:20px;left:0;right:0;text-align:center;color:var(--ink-soft);font-size:13px;z-index:5}
+    .hint b{color:var(--blue-900)}
+    #loading{position:fixed;inset:0;display:grid;place-items:center;z-index:10;font-weight:700;color:var(--blue-900)}
+    #err{position:fixed;inset:0;display:none;place-items:center;z-index:11;padding:30px;text-align:center;color:#a23a25}
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="overlay"><span class="badge"><span class="dot"></span> 3D preview · placeholder character (tests look &amp; feel, not final art)</span></div>
+  <div class="copy">
+    <span class="eyebrow">Walk with Safer</span>
+    <h1>Never walk alone.</h1>
+    <p>A rigged character actually walking on your phone — in real 3D. Drag to spin it.</p>
+  </div>
+  <div id="loading">Loading 3D…</div>
+  <div id="err">Couldn't load the 3D model (needs internet for the CDN). Tell me and I'll bundle it locally.</div>
+  <div class="hint">🖱️ <b>Drag</b> to orbit · scroll disabled · this is a feel test</div>
+  <div id="app"></div>
+
+  <script type="module">
+    import { initHero3D } from './hero3d.js';
+    initHero3D(document.getElementById('app'), {
+      model: 'assets/robot.glb',
+      onReady: () => { document.getElementById('loading').style.display = 'none'; },
+      onError: () => { document.getElementById('loading').style.display='none'; document.getElementById('err').style.display='grid'; }
+    });
+  </script>
+</body>
+</html>

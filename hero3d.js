@@ -1,0 +1,169 @@
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+// Draw the Safer app screen (map + route + pin + shield) onto a canvas texture.
+function makeScreenTexture() {
+  const c = document.createElement('canvas'); c.width = 512; c.height = 1024;
+  const x = c.getContext('2d');
+  // background
+  x.fillStyle = '#eef4ff'; x.fillRect(0,0,512,1024);
+  // grid
+  x.strokeStyle = 'rgba(47,107,255,.12)'; x.lineWidth = 2;
+  for (let i=0;i<=512;i+=64){ x.beginPath(); x.moveTo(i,0); x.lineTo(i,1024); x.stroke(); }
+  for (let j=0;j<=1024;j+=64){ x.beginPath(); x.moveTo(0,j); x.lineTo(512,j); x.stroke(); }
+  // route
+  x.strokeStyle = '#c9d8f5'; x.lineWidth = 26; x.lineCap='round';
+  x.beginPath(); x.moveTo(90,900); x.quadraticCurveTo(360,640,180,380); x.quadraticCurveTo(60,220,300,120); x.stroke();
+  // shield check
+  x.fillStyle = '#2f6bff';
+  x.beginPath();
+  x.moveTo(256,470); x.lineTo(330,505); x.lineTo(330,600); x.quadraticCurveTo(330,690,256,720);
+  x.quadraticCurveTo(182,690,182,600); x.lineTo(182,505); x.closePath(); x.fill();
+  x.strokeStyle='#fff'; x.lineWidth=16; x.lineCap='round'; x.lineJoin='round';
+  x.beginPath(); x.moveTo(228,585); x.lineTo(250,610); x.lineTo(292,558); x.stroke();
+  // location pin (teal)
+  x.fillStyle = '#17b3a3';
+  x.beginPath(); x.arc(330,300,30,Math.PI,0); x.lineTo(330,360); x.closePath(); x.fill();
+  x.fillStyle='#eef4ff'; x.beginPath(); x.arc(330,300,12,0,Math.PI*2); x.fill();
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  return t;
+}
+
+export function initHero3D(container, opts = {}) {
+  const modelURL = opts.model || 'assets/robot.glb';
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  camera.position.set(2.6, 3.9, 7.6);
+  camera.lookAt(0, 0.85, 0);
+
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  container.appendChild(renderer.domElement);
+  renderer.domElement.style.width = '100%';
+  renderer.domElement.style.height = '100%';
+  renderer.domElement.style.display = 'block';
+
+  // lights
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xd2ddf2, 1.15));
+  const key = new THREE.DirectionalLight(0xffffff, 2.0);
+  key.position.set(4, 9, 6); key.castShadow = true;
+  key.shadow.mapSize.set(2048,2048);
+  key.shadow.camera.near=1; key.shadow.camera.far=40;
+  key.shadow.camera.left=-7; key.shadow.camera.right=7; key.shadow.camera.top=7; key.shadow.camera.bottom=-7;
+  key.shadow.bias=-0.0004; key.shadow.radius=6;
+  scene.add(key);
+  const rim = new THREE.DirectionalLight(0x8fb4ff, 0.7); rim.position.set(-6,4,-5); scene.add(rim);
+
+  // toon gradient
+  const grad = new Uint8Array([90,170,235,255]);
+  const gradTex = new THREE.DataTexture(grad, grad.length, 1, THREE.RedFormat);
+  gradTex.needsUpdate = true; gradTex.minFilter = gradTex.magFilter = THREE.NearestFilter;
+
+  // scene root (for pointer parallax)
+  const root = new THREE.Group();
+  root.rotation.y = -0.5;
+  scene.add(root);
+
+  // phone
+  const body = new THREE.Mesh(
+    new RoundedBoxGeometry(3.3, 0.30, 6.7, 6, 0.36),
+    new THREE.MeshToonMaterial({ color:0x0a1f44, gradientMap:gradTex })
+  );
+  body.castShadow = true; body.receiveShadow = true; root.add(body);
+
+  const screenTex = makeScreenTexture();
+  const screen = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.9, 6.1),
+    new THREE.MeshToonMaterial({ map:screenTex, gradientMap:gradTex })
+  );
+  screen.rotation.x = -Math.PI/2; screen.position.y = 0.17; screen.receiveShadow = true;
+  root.add(screen);
+
+  // ground shadow
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(50,50), new THREE.ShadowMaterial({ opacity:0.16 }));
+  ground.rotation.x = -Math.PI/2; ground.position.y = -0.16; ground.receiveShadow = true; scene.add(ground);
+
+  // post
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const outline = new OutlinePass(new THREE.Vector2(1,1), scene, camera);
+  outline.edgeStrength = 5.0; outline.edgeGlow = 0.0; outline.edgeThickness = 1.2;
+  outline.visibleEdgeColor.set('#0a1f44'); outline.hiddenEdgeColor.set('#0a1f44');
+  composer.addPass(outline);
+  composer.addPass(new OutputPass());
+
+  // character
+  let mixer = null;
+  const loader = new GLTFLoader();
+  loader.load(modelURL, (gltf) => {
+    const model = gltf.scene;
+    model.scale.setScalar(0.36);
+    model.position.set(0, 0.2, 0.1);
+    model.rotation.y = Math.PI * 0.60;
+    model.traverse(o => {
+      if (o.isMesh) {
+        o.castShadow = true;
+        // brand recolor: clean off-white body, navy outline handles the form
+        o.material = new THREE.MeshToonMaterial({ color: 0xeaf1ff, gradientMap: gradTex });
+      }
+    });
+    root.add(model);
+    outline.selectedObjects = [model];
+    mixer = new THREE.AnimationMixer(model);
+    const walk = THREE.AnimationClip.findByName(gltf.animations, 'Walking') || gltf.animations[0];
+    mixer.clipAction(walk).play();
+    if (opts.onReady) opts.onReady();
+  }, undefined, (e) => { if (opts.onError) opts.onError(e); console.error('[hero3d]', e); });
+
+  // sizing
+  function resize() {
+    const w = container.clientWidth || 1, h = container.clientHeight || 1;
+    renderer.setSize(w, h, false);
+    composer.setSize(w, h);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  const ro = new ResizeObserver(resize); ro.observe(container); resize();
+
+  // pointer parallax
+  let tx = 0, ty = 0;
+  container.addEventListener('pointermove', (e) => {
+    const r = container.getBoundingClientRect();
+    tx = ((e.clientX - r.left)/r.width - 0.5) * 0.5;
+    ty = ((e.clientY - r.top)/r.height - 0.5) * 0.25;
+  });
+  container.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+
+  // run only when visible
+  const clock = new THREE.Clock();
+  let visible = true;
+  const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0.01 });
+  io.observe(container);
+
+  let baseSpin = -0.5;
+  renderer.setAnimationLoop(() => {
+    if (!visible) return;
+    const dt = clock.getDelta();
+    if (mixer) mixer.update(dt);
+    baseSpin += dt * 0.12;                       // gentle idle rotation
+    root.rotation.y += ( (-0.5 + Math.sin(baseSpin)*0.28 + tx) - root.rotation.y ) * 0.05;
+    root.rotation.x += ( (ty*0.4) - root.rotation.x ) * 0.05;
+    composer.render();
+  });
+
+  return {
+    dispose() {
+      renderer.setAnimationLoop(null); ro.disconnect(); io.disconnect();
+      renderer.dispose(); container.removeChild(renderer.domElement);
+    }
+  };
+}
