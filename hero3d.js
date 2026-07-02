@@ -117,13 +117,8 @@ export function initHero3D(container, opts = {}) {
     model.traverse(o => {
       if (o.isMesh || o.isSkinnedMesh) {
         o.castShadow = true; o.frustumCulled = false;
-        const src = Array.isArray(o.material) ? o.material[0] : o.material;
-        // cel-shade: keep her real texture if she has one, else a clean brand tint
-        o.material = new THREE.MeshToonMaterial({
-          map: src && src.map ? src.map : null,
-          color: src && src.map ? 0xffffff : 0xdbe7ff,
-          gradientMap: gradTex
-        });
+        // clean brand-blue line-art figure (matches the page's illustrated style)
+        o.material = new THREE.MeshToonMaterial({ color: 0xdbe7ff, gradientMap: gradTex });
       }
     });
     // AUTO-FIT: scale to a target height, then plant feet on the phone screen
@@ -139,13 +134,28 @@ export function initHero3D(container, opts = {}) {
     root.add(model);
     outline.selectedObjects = [model];
     mixer = new THREE.AnimationMixer(model);
-    const names = ['Walk','Walking','walk','Run','run','mixamo.com','Armature|mixamo.com'];
-    const walk = names.map(n => THREE.AnimationClip.findByName(animations, n)).find(Boolean) || (animations && animations[0]);
-    if (walk) {
-      // strip root translation so she steps IN PLACE on the phone (no drift/snap)
-      walk.tracks = walk.tracks.filter(t => !/\.position$/.test(t.name));
-      mixer.clipAction(walk).play();
-      animated = true;
+    // Mixamo FBX can carry several animation stacks (some empty/bind).
+    // Pick the RICHEST clip — most tracks & real duration — so we don't play a dead stack.
+    let walk = null;
+    if (animations && animations.length) {
+      const named = ['walk', 'Walking', 'Walk', 'walking', 'mixamo.com']
+        .map(n => THREE.AnimationClip.findByName(animations, n)).find(Boolean);
+      walk = named || animations
+        .slice()
+        .sort((a, b) => ((b.tracks?.length || 0) + (b.duration || 0)) - ((a.tracks?.length || 0) + (a.duration || 0)))[0];
+    }
+    if (walk && walk.tracks && walk.tracks.length) {
+      // strip root translation so she steps IN PLACE (no drift) — but only if rotation tracks remain
+      const stripped = walk.tracks.filter(t => !/\.position$/.test(t.name));
+      if (stripped.length) walk.tracks = stripped;
+      const action = mixer.clipAction(walk);
+      action.reset();
+      action.setLoop(THREE.LoopRepeat, Infinity);
+      action.play();
+      animated = walk.duration > 0;
+      console.log('[hero3d] clips:', animations.length, '| playing:', walk.name, '| tracks:', walk.tracks.length, '| dur:', walk.duration.toFixed(2));
+    } else {
+      console.warn('[hero3d] no usable animation clip found', animations);
     }
     if (opts.onReady) opts.onReady();
   }
