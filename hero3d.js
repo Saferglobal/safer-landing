@@ -104,7 +104,7 @@ export function initHero3D(container, opts = {}) {
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
   const outline = new OutlinePass(new THREE.Vector2(1,1), scene, camera);
-  outline.edgeStrength = 6.5; outline.edgeGlow = 0.0; outline.edgeThickness = 2.2;
+  outline.edgeStrength = 2.2; outline.edgeGlow = 0.0; outline.edgeThickness = 1.0;
   outline.visibleEdgeColor.set('#0a1f44'); outline.hiddenEdgeColor.set('#0a1f44');
   composer.addPass(outline);
   composer.addPass(new OutputPass());
