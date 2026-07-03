@@ -29,7 +29,7 @@
     // ---- hero ----
     "Coming soon on iOS": "Muy pronto en iOS",
     "When something happens, every second matters.": "Cuando algo pasa, cada segundo cuenta.",
-    "Safer helps you connect with the people you care about, share what's happening, and give them the context they need to respond faster in real time.": "Safer te ayuda a conectar con las personas que te importan, compartir lo que está pasando y darles el contexto que necesitan para responder más rápido, en tiempo real.",
+    "Safer is a personal safety app for your phone. Share your location with the people you trust — and reach them in one tap the moment something feels wrong.": "Safer es una app de seguridad personal para tu teléfono. Comparte tu ubicación con las personas en quienes confías y contáctalas con un solo toque en cuanto algo no se siente bien.",
     "Safer is a safety communication tool and is not a replacement for emergency services.": "Safer es una herramienta de comunicación de seguridad y no sustituye a los servicios de emergencia.",
 
     // ---- never walk alone ----

@@ -727,7 +727,7 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
   .hero-copy .lead { margin-inline: auto; }
   .hero-cta, .hero-trust { justify-content: center; }
   .hero-note { margin-inline: auto; text-align: left; }
-  .hero-stage { min-height: 480px; margin-top: 20px; }
+  .hero-stage { min-height: 360px; margin-top: 10px; }
   .split { grid-template-columns: 1fr; text-align: center; }
   .split.reverse .split-media { order: 0; }
   .split-copy .lead { margin-inline: auto; }
