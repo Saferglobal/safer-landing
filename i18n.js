@@ -56,21 +56,21 @@
 
     // ---- AI watch me ----
     "AI Watch Me Mode": "Modo Vigílame con IA",
-    "When you're in trouble, one move is enough.": "Cuando estás en peligro, un solo gesto basta.",
-    "When you're scared, you shouldn't have to explain. Safer just gets it.": "Cuando tienes miedo, no deberías tener que explicar nada. Safer lo entiende.",
+    "During the moments that matter most, set Safer to AI Watch Me Mode.": "En los momentos que más importan, activa el Modo Vigílame con IA de Safer.",
+    "When you feel in danger, you should not need to explain everything.": "Cuando sientes peligro, no deberías tener que explicarlo todo.",
     "Say your secret word": "Di tu palabra secreta",
     "Shake your phone": "Agita tu teléfono",
     "Tap SOS": "Toca SOS",
     "Or simply talk to Safer": "O simplemente habla con Safer",
-    "Safer instantly alerts the people you trust — and shows them exactly where you are.": "Safer avisa al instante a las personas en quienes confías y les muestra exactamente dónde estás.",
-    "Even if you're panicking or can't speak, Safer turns your signal into a clear call for help.": "Aunque estés en pánico o no puedas hablar, Safer convierte tu señal en una llamada de ayuda clara.",
+    "Safer can alert the right people, share your live location, and provide real-time context to support a faster response.": "Safer puede avisar a las personas indicadas, compartir tu ubicación en vivo y aportar contexto en tiempo real para lograr una respuesta más rápida.",
+    "Even if you are stressed, confused, or not sure what to do, Safer helps turn your signal into a clear alert.": "Aunque estés estresada, confundida o no sepas qué hacer, Safer convierte tu señal en una alerta clara.",
     "Safer's mission is simple": "La misión de Safer es simple",
-    "Get you to the people who care — fast, when it matters most.": "Conectarte con quienes te quieren, rápido y cuando más importa.",
+    "Help you reach the right people faster when it matters most.": "Ayudarte a llegar a las personas indicadas más rápido cuando más importa.",
 
     // ---- waitlist ----
     "Soon on the": "Muy pronto en",
-    "Be the first to feel Safer.": "Sé de las primeras en sentirte más segura.",
-    "Safer is coming to iPhone. Join the waitlist and we'll tell you the moment it's ready — with early access for you and the people you love.": "Safer llega pronto a iPhone. Únete a la lista de espera y te avisaremos en cuanto esté lista, con acceso anticipado para ti y las personas que quieres.",
+    "Reach the right people faster.": "Llega a las personas indicadas más rápido.",
+    "Safer is launching on iPhone. Join the waitlist and we'll notify you the moment it's ready to download — plus early access for you and your trusted circle.": "Safer llega pronto a iPhone. Únete a la lista de espera y te avisaremos en cuanto esté lista para descargar, con acceso anticipado para ti y tu círculo de confianza.",
     "Notify me": "Avísame",
     "You're on the list — we'll email you the moment Safer launches on iOS.": "Estás en la lista: te escribiremos en cuanto Safer llegue a iOS.",
     "iPhone & iOS first. No spam, just one launch email. Unsubscribe anytime.": "iPhone e iOS primero. Sin spam, solo un correo de lanzamiento. Cancela cuando quieras.",
