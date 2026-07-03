@@ -28,8 +28,8 @@
 
     // ---- hero ----
     "Coming soon on iOS": "Muy pronto en iOS",
-    "Feel safe. Even when you're alone.": "Siéntete segura. Incluso cuando estás sola.",
-    "Safer is a personal safety app for your phone. Share your location with the people you trust — and reach them in one tap the moment something feels wrong.": "Safer es una app de seguridad personal para tu teléfono. Comparte tu ubicación con las personas en quienes confías y contáctalas con un toque en cuanto algo no se sienta bien.",
+    "When something happens, every second matters.": "Cuando algo pasa, cada segundo cuenta.",
+    "Safer helps you connect with the people you care about, share what's happening, and give them the context they need to respond faster in real time.": "Safer te ayuda a conectar con las personas que te importan, compartir lo que está pasando y darles el contexto que necesitan para responder más rápido, en tiempo real.",
     "Safer is a safety communication tool and is not a replacement for emergency services.": "Safer es una herramienta de comunicación de seguridad y no sustituye a los servicios de emergencia.",
 
     // ---- never walk alone ----
@@ -46,7 +46,7 @@
     "Alerted instantly": "Avisados al instante",
 
     // ---- real situations ----
-    "We all have moments that don't feel safe.": "Todos tenemos momentos en los que no nos sentimos seguros.",
+    "Our lives are full of different situations.": "Nuestra vida está llena de situaciones distintas.",
     "Walking home alone late at night": "Caminando sola a casa de noche",
     "Something feels off and you don't know why": "Algo se siente raro y no sabes por qué",
     "Your kids heading back from school": "Tus hijos volviendo del colegio",
