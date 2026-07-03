@@ -33,9 +33,10 @@
     "Safer is a safety communication tool and is not a replacement for emergency services.": "Safer es una herramienta de comunicación de seguridad y no sustituye a los servicios de emergencia.",
 
     // ---- never walk alone ----
-    "Walk with Safer": "Camina con Safer",
+    "Meet Watch Me": "Conoce Vigílame",
     "Never walk alone.": "Nunca camines sola.",
-    "Walking home late, or somewhere new? Turn on Watch Me. The people you trust can see where you are — and if anything feels wrong, they'll know right away.": "¿Volviendo tarde a casa o en un lugar nuevo? Activa Vigílame. Las personas en quienes confías pueden ver dónde estás, y si algo va mal, lo sabrán de inmediato.",
+    "Watch Me is like a friend walking you home.": "Vigílame es como que un amigo te acompañe a casa.",
+    "Turn it on before you head out, and the people you trust can see where you are, live — the whole way. If you don't arrive, or something feels wrong, they're alerted instantly.": "Actívalo antes de salir y las personas en quienes confías pueden ver dónde estás, en vivo, durante todo el camino. Si no llegas, o algo va mal, reciben un aviso al instante.",
     "See how Watch Me works": "Cómo funciona Vigílame",
     "Watch Me": "Vigílame",
     "On my way home": "De camino a casa",
