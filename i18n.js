@@ -28,14 +28,14 @@
 
     // ---- hero ----
     "Coming soon on iOS": "Muy pronto en iOS",
-    "When something happens, every second matters.": "Cuando algo pasa, cada segundo cuenta.",
-    "Safer helps you connect with the people you care about, share what's happening, and give them the context they need to respond faster in real time.": "Safer te ayuda a conectar con las personas que te importan, compartir lo que está pasando y darles el contexto que necesitan para responder más rápido, en tiempo real.",
+    "Feel safe. Even when you're alone.": "Siéntete segura. Incluso cuando estás sola.",
+    "Safer is a personal safety app for your phone. Share your location with the people you trust — and reach them in one tap the moment something feels wrong.": "Safer es una app de seguridad personal para tu teléfono. Comparte tu ubicación con las personas en quienes confías y contáctalas con un toque en cuanto algo no se sienta bien.",
     "Safer is a safety communication tool and is not a replacement for emergency services.": "Safer es una herramienta de comunicación de seguridad y no sustituye a los servicios de emergencia.",
 
     // ---- never walk alone ----
     "Walk with Safer": "Camina con Safer",
     "Never walk alone.": "Nunca camines sola.",
-    "Heading home late, walking somewhere unfamiliar, or simply feeling uneasy? Start Watch Me and let Safer keep your trusted people connected with your live location and real-time context.": "¿Volviendo tarde a casa, caminando por un lugar desconocido o con una sensación incómoda? Activa Vigílame y deja que Safer mantenga a tus personas de confianza conectadas con tu ubicación en vivo y el contexto en tiempo real.",
+    "Walking home late, or somewhere new? Turn on Watch Me. The people you trust can see where you are — and if anything feels wrong, they'll know right away.": "¿Volviendo tarde a casa o en un lugar nuevo? Activa Vigílame. Las personas en quienes confías pueden ver dónde estás, y si algo va mal, lo sabrán de inmediato.",
     "See how Watch Me works": "Cómo funciona Vigílame",
     "Watch Me": "Vigílame",
     "On my way home": "De camino a casa",
@@ -46,7 +46,7 @@
     "Alerted instantly": "Avisados al instante",
 
     // ---- real situations ----
-    "Our lives are full of different situations.": "Nuestra vida está llena de situaciones distintas.",
+    "We all have moments that don't feel safe.": "Todos tenemos momentos en los que no nos sentimos seguros.",
     "Walking home alone late at night": "Caminando sola a casa de noche",
     "Something feels off and you don't know why": "Algo se siente raro y no sabes por qué",
     "Your kids heading back from school": "Tus hijos volviendo del colegio",
@@ -56,21 +56,21 @@
 
     // ---- AI watch me ----
     "AI Watch Me Mode": "Modo Vigílame con IA",
-    "During the moments that matter most, set Safer to AI Watch Me Mode.": "En los momentos que más importan, activa el Modo Vigílame con IA de Safer.",
-    "When you feel in danger, you should not need to explain everything.": "Cuando sientes peligro, no deberías tener que explicarlo todo.",
+    "When you're in trouble, one move is enough.": "Cuando estás en peligro, un solo gesto basta.",
+    "When you're scared, you shouldn't have to explain. Safer just gets it.": "Cuando tienes miedo, no deberías tener que explicar nada. Safer lo entiende.",
     "Say your secret word": "Di tu palabra secreta",
     "Shake your phone": "Agita tu teléfono",
     "Tap SOS": "Toca SOS",
     "Or simply talk to Safer": "O simplemente habla con Safer",
-    "Safer can alert the right people, share your live location, and provide real-time context to support a faster response.": "Safer puede avisar a las personas indicadas, compartir tu ubicación en vivo y aportar contexto en tiempo real para lograr una respuesta más rápida.",
-    "Even if you are stressed, confused, or not sure what to do, Safer helps turn your signal into a clear alert.": "Aunque estés estresada, confundida o no sepas qué hacer, Safer convierte tu señal en una alerta clara.",
+    "Safer instantly alerts the people you trust — and shows them exactly where you are.": "Safer avisa al instante a las personas en quienes confías y les muestra exactamente dónde estás.",
+    "Even if you're panicking or can't speak, Safer turns your signal into a clear call for help.": "Aunque estés en pánico o no puedas hablar, Safer convierte tu señal en una llamada de ayuda clara.",
     "Safer's mission is simple": "La misión de Safer es simple",
-    "Help you reach the right people faster when it matters most.": "Ayudarte a llegar a las personas indicadas más rápido cuando más importa.",
+    "Get you to the people who care — fast, when it matters most.": "Conectarte con quienes te quieren, rápido y cuando más importa.",
 
     // ---- waitlist ----
     "Soon on the": "Muy pronto en",
-    "Reach the right people faster.": "Llega a las personas indicadas más rápido.",
-    "Safer is launching on iPhone. Join the waitlist and we'll notify you the moment it's ready to download — plus early access for you and your trusted circle.": "Safer llega pronto a iPhone. Únete a la lista de espera y te avisaremos en cuanto esté lista para descargar, con acceso anticipado para ti y tu círculo de confianza.",
+    "Be the first to feel Safer.": "Sé de las primeras en sentirte más segura.",
+    "Safer is coming to iPhone. Join the waitlist and we'll tell you the moment it's ready — with early access for you and the people you love.": "Safer llega pronto a iPhone. Únete a la lista de espera y te avisaremos en cuanto esté lista, con acceso anticipado para ti y las personas que quieres.",
     "Notify me": "Avísame",
     "You're on the list — we'll email you the moment Safer launches on iOS.": "Estás en la lista: te escribiremos en cuanto Safer llegue a iOS.",
     "iPhone & iOS first. No spam, just one launch email. Unsubscribe anytime.": "iPhone e iOS primero. Sin spam, solo un correo de lanzamiento. Cancela cuando quieras.",
