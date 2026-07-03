@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safer for him — Solo doesn't mean alone.</title>
+  <meta name="description" content="Late shifts, long drives, a solo hike or ride — Safer keeps someone you trust in the loop." />
+  <meta name="theme-color" content="#2f6bff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/orb.png" />
+  <link rel="apple-touch-icon" href="assets/orb.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Safer home">
+        <img class="orb" src="assets/orb.png" alt="" width="40" height="40" />
+        Safer
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html#watch-me" class="nav-link">How Safer Works</a></li>
+        <li class="nav-item">
+          <a href="usecase-her.html" class="nav-link">Use Cases
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a class="drop-link" href="usecase-community.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="drop-txt"><strong>Community</strong></span></a>
+            <a class="drop-link" href="usecase-family.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span><span class="drop-txt"><strong>Family</strong></span></a>
+            <a class="drop-link" href="usecase-her.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8"/><path d="M9 18h6"/></svg></span><span class="drop-txt"><strong>For her</strong></span></a>
+            <a class="drop-link" href="usecase-him.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="5"/><path d="M15 9l6-6"/><path d="M16 3h5v5"/></svg></span><span class="drop-txt"><strong>For him</strong></span></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="index.html#situations" class="nav-link">Real Situations</a></li>
+        <li class="nav-item">
+          <a href="faq.html" class="nav-link">Resources
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a class="drop-link" href="faq.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.5 1.5c0 1.5-2 2-2 3.5"/><path d="M12 17h.01"/></svg></span><span class="drop-txt"><strong>Common Questions</strong></span></a>
+            <a class="drop-link" href="privacy.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="drop-txt"><strong>Privacy Policy</strong></span></a>
+            <a class="drop-link" href="contact.html"><span class="drop-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.5z"/></svg></span><span class="drop-txt"><strong>Contact Us</strong></span></a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#notify" class="btn btn--primary nav-cta">Get Early Access</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-panel">
+      <div class="mm-head">
+        <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="36" height="36" />Safer</span>
+        <button class="icon-btn" id="mmClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="mm-group"><a href="index.html#watch-me" style="font-weight:700;color:var(--blue-900)">How Safer Works</a></div>
+      <details class="mm-group" open>
+        <summary>Use Cases <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <a href="usecase-community.html">Community</a><a href="usecase-family.html">Family</a><a href="usecase-her.html">For her</a><a href="usecase-him.html">For him</a>
+      </details>
+      <div class="mm-group"><a href="index.html#situations" style="font-weight:700;color:var(--blue-900)">Real Situations</a></div>
+      <details class="mm-group">
+        <summary>Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <a href="faq.html">Common Questions</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="safety-disclaimer.html">Safety Disclaimer</a><a href="contact.html">Contact</a>
+      </details>
+      <div class="mm-actions">
+        <a href="index.html#notify" class="btn btn--primary btn--lg">Get Early Access</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero uc-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="5"/><path d="M15 9l6-6"/><path d="M16 3h5v5"/></svg> Use Cases · For him</span>
+          <h1 class="h-hero">Solo doesn't mean alone.</h1>
+          <p class="lead">Late shifts, long drives, a solo hike or ride — someone you trust always knows where you are.</p>
+          <div class="hero-cta">
+            <a href="index.html#notify" class="btn btn--primary btn--lg">Get Early Access</a>
+            <a href="index.html#watch-me" class="btn btn--ghost btn--lg">See how it works</a>
+          </div>
+        </div>
+        <div class="uc-fig" aria-hidden="true">
+          <img src="assets/sit-uneasy.png" alt="A man out on his own, staying connected with Safer" />
+        </div>
+      </div>
+    </section>
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">How Safer helps</span>
+          <h2 class="h-2">Simple when it matters most.</h2>
+        </div>
+        <div class="uc-points">
+          <div class="uc-point">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg></span>
+            <span class="uc-step">Share</span>
+            <h3>Share your location</h3>
+            <p>Let the people you trust follow your live location while you're out.</p>
+          </div>
+          <div class="uc-point">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <span class="uc-step">Alert</span>
+            <h3>One-tap SOS</h3>
+            <p>If something goes wrong, one tap alerts your circle with your exact position.</p>
+          </div>
+          <div class="uc-point">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="uc-step">Confirm</span>
+            <h3>No one left wondering</h3>
+            <p>Automatic check-ins mean nobody has to guess if you made it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="cta-final">
+          <h2 class="h-2">Head out with backup.</h2>
+          <p>Safer is launching on iPhone. Join the waitlist and we'll notify you the moment it's ready.</p>
+          <a href="index.html#notify" class="btn btn--lg" style="background:#fff;color:var(--blue-700)">Get Early Access</a>
+          <p class="disclaimer-line">Safer is a safety communication tool and is not a replacement for emergency services.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="40" height="40" />Safer</span>
+          <p>Reach the right people faster when it matters most. Alert, locate, and share real-time context with the people you care about.</p>
+          <p style="margin-top:16px"><a href="index.html#notify" style="color:#cfe0ff;font-weight:700">Join the waitlist &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Use Cases</h4>
+          <a href="usecase-community.html">Community</a>
+          <a href="usecase-family.html">Family</a>
+          <a href="usecase-her.html">For her</a>
+          <a href="usecase-him.html">For him</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="faq.html">Common Questions</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="delete-account.html">Delete Account</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="safety-disclaimer.html">Safety Disclaimer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Safer Global. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
