@@ -35,8 +35,8 @@
     // ---- never walk alone ----
     "Meet Watch Me": "Conoce Vigílame",
     "Never walk alone.": "Nunca camines sola.",
-    "Watch Me is like a friend walking you home.": "Vigílame es como que un amigo te acompañe a casa.",
-    "Turn it on before you head out, and the people you trust can see where you are, live — the whole way. If you don't arrive, or something feels wrong, they're alerted instantly.": "Actívalo antes de salir y las personas en quienes confías pueden ver dónde estás, en vivo, durante todo el camino. Si no llegas, o algo va mal, reciben un aviso al instante.",
+    "Watch Me is always with you — so you're never alone.": "Vigílame siempre está contigo, para que nunca estés sola.",
+    "A panic button only helps if you can reach it in time. In real danger, you can't. So Watch Me watches over you the whole way — and the moment something's wrong, you just say your word or shake your phone. Safer instantly alerts your people and takes over.": "Un botón de pánico solo sirve si llegas a pulsarlo a tiempo. En peligro real, no puedes. Por eso Vigílame te acompaña todo el camino, y en cuanto algo va mal, solo di tu palabra o agita el teléfono. Safer avisa al instante a tus personas y se encarga del resto.",
     "See how Watch Me works": "Cómo funciona Vigílame",
     "Watch Me": "Vigílame",
     "On my way home": "De camino a casa",
