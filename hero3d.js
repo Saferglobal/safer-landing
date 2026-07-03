@@ -117,8 +117,17 @@ export function initHero3D(container, opts = {}) {
     model.traverse(o => {
       if (o.isMesh || o.isSkinnedMesh) {
         o.castShadow = true; o.frustumCulled = false;
-        // clean brand-blue line-art figure (matches the page's illustrated style)
-        o.material = new THREE.MeshToonMaterial({ color: 0xdbe7ff, gradientMap: gradTex });
+        const src = Array.isArray(o.material) ? o.material[0] : o.material;
+        if (src && src.map) {
+          // keep her REAL textures (clothes / skin / hair color), lit naturally
+          if (src.map.colorSpace !== THREE.SRGBColorSpace) src.map.colorSpace = THREE.SRGBColorSpace;
+          src.roughness = 0.9; src.metalness = 0.0;
+          src.needsUpdate = true;
+          o.material = src;
+        } else {
+          // untextured mesh -> clean brand-blue line-art figure
+          o.material = new THREE.MeshToonMaterial({ color: 0xdbe7ff, gradientMap: gradTex });
+        }
       }
     });
     // AUTO-FIT: scale to a target height, then plant feet on the phone screen
