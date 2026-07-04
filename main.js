@@ -87,9 +87,12 @@
       var original = btn.innerHTML;
       btn.disabled = true; btn.textContent = "Joining…";
       fetch(WAITLIST_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(wf) })
-        .then(function (r) {
+        .then(function (r) { return r.json().catch(function () { return {}; }); })
+        .then(function (data) {
           btn.disabled = false; btn.innerHTML = original;
-          if (r.ok) { showOk(); } else if (err) { err.hidden = false; }
+          // FormSubmit returns HTTP 200 even on failure — only trust success:"true"
+          if (data && String(data.success) === "true") { showOk(); }
+          else if (err) { err.hidden = false; }
         })
         .catch(function () {
           btn.disabled = false; btn.innerHTML = original;
