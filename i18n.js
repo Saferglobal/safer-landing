@@ -35,6 +35,7 @@
     // ---- never walk alone ----
     "Meet Watch Me": "Conoce Vigílame",
     "Never walk alone.": "Nunca camines sola.",
+    "Someone\'s with you, the whole way.": "Alguien te acompaña, todo el camino.",
     "Turn on Watch Me whenever you want to feel safer": "Activa Vigílame cuando quieras sentirte más segura",
     "— heading out, walking alone, or any time something feels off. While it's on, it watches over you, so you're never really alone.": "— al salir, caminando sola o cuando algo no se siente bien. Mientras está activo, te cuida, para que nunca estés realmente sola.",
     "See how Watch Me works": "Cómo funciona Vigílame",
