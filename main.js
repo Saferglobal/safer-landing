@@ -59,7 +59,7 @@
      Paste your Formspree endpoint below to store signups + get emailed on each one.
      Get it free at formspree.io (New form -> copy the URL). Until then, it routes to
      the support inbox via the visitor's mail app so no signup is silently lost. */
-  var WAITLIST_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxxx"
+  var WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/support@safer.global"; // no-signup capture; emails each new lead to support@
   var wf = document.getElementById("waitlistForm");
   if (wf) {
     wf.addEventListener("submit", function (e) {
