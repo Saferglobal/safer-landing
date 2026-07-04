@@ -55,6 +55,49 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---- Waitlist: REAL signup capture ----
+     Paste your Formspree endpoint below to store signups + get emailed on each one.
+     Get it free at formspree.io (New form -> copy the URL). Until then, it routes to
+     the support inbox via the visitor's mail app so no signup is silently lost. */
+  var WAITLIST_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxxx"
+  var wf = document.getElementById("waitlistForm");
+  if (wf) {
+    wf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = wf.querySelector('input[name="email"]');
+      var ok = wf.querySelector(".form-note:not(.form-error)");
+      var err = wf.querySelector(".form-error");
+      var btn = wf.querySelector('button[type="submit"]');
+      if (ok) ok.hidden = true;
+      if (err) err.hidden = true;
+      if (!email || !email.value || !email.checkValidity()) { if (email) email.reportValidity(); return; }
+      if (wf.querySelector('input[name="_gotcha"]').value) return; // honeypot: silent drop
+
+      function showOk() { if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); } wf.reset(); }
+
+      if (!WAITLIST_ENDPOINT) {
+        // Not configured yet — hand off to the mail app (real, reaches support@)
+        window.location.href = "mailto:support@safer.global?subject=" +
+          encodeURIComponent("Safer Early Access signup") +
+          "&body=" + encodeURIComponent("Please add me to the Safer early access list: " + email.value);
+        showOk();
+        return;
+      }
+
+      var original = btn.innerHTML;
+      btn.disabled = true; btn.textContent = "Joining…";
+      fetch(WAITLIST_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(wf) })
+        .then(function (r) {
+          btn.disabled = false; btn.innerHTML = original;
+          if (r.ok) { showOk(); } else if (err) { err.hidden = false; }
+        })
+        .catch(function () {
+          btn.disabled = false; btn.innerHTML = original;
+          if (err) err.hidden = false;
+        });
+    });
+  }
+
   /* Contact / request form (front-end only demo) */
   document.querySelectorAll("form[data-demo]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
