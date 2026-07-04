@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /3d.html
+
+Sitemap: https://web.safer.global/sitemap.xml

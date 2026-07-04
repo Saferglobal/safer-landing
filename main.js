@@ -98,11 +98,22 @@
     });
   }
 
-  /* Contact / request form (front-end only demo) */
-  document.querySelectorAll("form[data-demo]").forEach(function (form) {
+  /* Contact / GDPR / delete forms — build a REAL mailto so nothing is silently dropped */
+  document.querySelectorAll("form[data-mailto]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var to = form.getAttribute("data-mailto");
+      var subject = form.getAttribute("data-subject") || "Website message";
+      var lines = [];
+      form.querySelectorAll("input, textarea, select").forEach(function (el) {
+        if (!el.name || el.type === "hidden") return;
+        var label = el.getAttribute("aria-label") || el.name;
+        lines.push(label + ": " + el.value);
+      });
       var note = form.querySelector(".form-note");
+      window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
       if (note) { note.hidden = false; note.scrollIntoView({ behavior: "smooth", block: "center" }); }
       form.reset();
     });
