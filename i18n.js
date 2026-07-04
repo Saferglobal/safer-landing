@@ -29,7 +29,8 @@
     // ---- hero ----
     "Coming soon on iOS": "Muy pronto en iOS",
     "When you can't reach them, Safer does.": "Cuando no puedes contactarlos, Safer lo hace.",
-    "Safer is a personal safety app for your phone. Share your location with the people you trust — and reach them in one tap the moment something feels wrong.": "Safer es una app de seguridad personal para tu teléfono. Comparte tu ubicación con las personas en quienes confías y contáctalas con un solo toque en cuanto algo no se siente bien.",
+    "Safer watches over you when you're more exposed — walking home, going on a date, going for a run, or sending your kids to school.": "Safer te cuida cuando estás más expuesta — al volver a casa, en una cita, saliendo a correr o cuando llevas a tus hijos al colegio.",
+    "Share your live location, start smart monitoring, and alert your trusted people — with one tap or smart activation.": "Comparte tu ubicación en vivo, inicia el monitoreo inteligente y alerta a tus personas de confianza — con un toque o activación inteligente.",
     "Safer is a safety communication tool and is not a replacement for emergency services.": "Safer es una herramienta de comunicación de seguridad y no sustituye a los servicios de emergencia.",
 
     // ---- never walk alone ----

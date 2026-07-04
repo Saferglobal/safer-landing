@@ -789,3 +789,4 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
 .privacy-line { display: inline-flex; align-items: center; gap: 8px; justify-content: center; margin: 14px auto 0; font-size: .92rem; font-weight: 600; color: #dbe7ff; opacity: .95; }
 .privacy-line svg { width: 17px; height: 17px; flex: none; }
 .wm-steps { margin-top: clamp(30px, 4vw, 46px); }
+.hero-copy .lead--sub { font-size: clamp(.98rem, 1.05vw, 1.06rem); color: var(--ink-soft); margin-top: -14px; }
