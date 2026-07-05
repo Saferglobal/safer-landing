@@ -802,3 +802,16 @@ section[id]{scroll-margin-top:92px}
 /* comfortable mobile tap targets in the footer */
 .footer-social a{width:42px;height:42px;display:inline-grid;place-items:center;border-radius:12px}
 @media (max-width:900px){ .footer-links a, .footer-col a{display:inline-block;padding:6px 0} }
+/* hero: surfaced differentiator line */
+.hero-kicker{font-size:clamp(1.02rem,1.5vw,1.2rem);font-weight:700;color:var(--blue);margin:0 0 16px;letter-spacing:-.01em}
+/* hero: inline signup on light bg */
+.hero-notify{justify-content:flex-start;margin:2px 0 10px;max-width:480px}
+.hero-notify input{background:#fff;border:1.5px solid var(--line);box-shadow:0 2px 10px rgba(18,34,90,.06)}
+.hero-notify input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,107,255,.16)}
+.hero-microcopy{font-size:.82rem;color:var(--ink-soft);margin:0}
+.hero-copy .form-note{margin:12px 0 8px;max-width:480px;justify-content:flex-start;background:#e9f7ef;border-color:#bfe6d2;color:#12603f}
+.hero-copy .form-error{background:#fdecea;border-color:#f6c9c2;color:#a23325}
+@media (max-width:900px){
+  .hero-notify{justify-content:center;margin-inline:auto}
+  .hero-copy .form-note{justify-content:center;margin-inline:auto}
+}

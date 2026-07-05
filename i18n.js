@@ -3,6 +3,7 @@
    strings gracefully stay English. Choice persists in localStorage. */
 (function () {
   const DICT = {
+    "No spam — just one launch email when Safer goes live on iPhone.": "Sin spam — solo un correo cuando Safer se lance en iPhone.",
     // ---- nav / common ----
     "How Safer Works": "Cómo funciona Safer",
     "Use Cases": "Casos de uso",

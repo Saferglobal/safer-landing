@@ -60,23 +60,25 @@
      Get it free at formspree.io (New form -> copy the URL). Until then, it routes to
      the support inbox via the visitor's mail app so no signup is silently lost. */
   var WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/support@safer.global"; // no-signup capture; emails each new lead to support@
-  var wf = document.getElementById("waitlistForm");
-  if (wf) {
+  // Drives every waitlist form on the page (hero + footer). Notes are SIBLINGS of the
+  // form, so they're scoped to the form's parent, not queried inside the form.
+  document.querySelectorAll("form.notify-form").forEach(function (wf) {
+    var scope = wf.parentNode;
     wf.addEventListener("submit", function (e) {
       e.preventDefault();
       var email = wf.querySelector('input[name="email"]');
-      var ok = wf.querySelector(".form-note:not(.form-error)");
-      var err = wf.querySelector(".form-error");
+      var ok = scope.querySelector(".form-note:not(.form-error)");
+      var err = scope.querySelector(".form-error");
       var btn = wf.querySelector('button[type="submit"]');
       if (ok) ok.hidden = true;
       if (err) err.hidden = true;
       if (!email || !email.value || !email.checkValidity()) { if (email) email.reportValidity(); return; }
-      if (wf.querySelector('input[name="_gotcha"]').value) return; // honeypot: silent drop
+      var honey = wf.querySelector('input[name="_gotcha"]');
+      if (honey && honey.value) return; // honeypot: silent drop
 
       function showOk() { if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); } if (window.gtag) gtag("event", "sign_up", { method: "waitlist" }); wf.reset(); }
 
       if (!WAITLIST_ENDPOINT) {
-        // Not configured yet — hand off to the mail app (real, reaches support@)
         window.location.href = "mailto:support@safer.global?subject=" +
           encodeURIComponent("Safer Early Access signup") +
           "&body=" + encodeURIComponent("Please add me to the Safer early access list: " + email.value);
@@ -99,7 +101,7 @@
           if (err) err.hidden = false;
         });
     });
-  }
+  });
 
   /* ---- Analytics: consent-gated GA4 (no cookies/tracking until the visitor accepts) ---- */
   (function () {
