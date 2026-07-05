@@ -797,3 +797,8 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
 .cookie-bar button{border-radius:999px;padding:7px 18px;font-weight:600;font-size:.85rem;cursor:pointer;border:none}
 .cb-accept{background:#2f6bff;color:#fff}
 .cb-decline{background:rgba(255,255,255,.15);color:#eaf0ff}
+/* anchor targets clear the sticky header */
+section[id]{scroll-margin-top:92px}
+/* comfortable mobile tap targets in the footer */
+.footer-social a{width:42px;height:42px;display:inline-grid;place-items:center;border-radius:12px}
+@media (max-width:900px){ .footer-links a, .footer-col a{display:inline-block;padding:6px 0} }
