@@ -791,3 +791,9 @@ h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.12; letter-spacing: -0.0
 .privacy-line svg { width: 17px; height: 17px; flex: none; }
 .wm-steps { margin-top: clamp(30px, 4vw, 46px); }
 .hero-copy .lead--sub { font-size: clamp(.98rem, 1.05vw, 1.06rem); color: var(--ink-soft); margin-top: -14px; }
+.cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:300;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:center;background:#12225a;color:#eaf0ff;padding:12px 18px;font-size:.88rem;box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+.cookie-bar a{color:#bcd2ff;text-decoration:underline}
+.cookie-actions{display:flex;gap:8px}
+.cookie-bar button{border-radius:999px;padding:7px 18px;font-weight:600;font-size:.85rem;cursor:pointer;border:none}
+.cb-accept{background:#2f6bff;color:#fff}
+.cb-decline{background:rgba(255,255,255,.15);color:#eaf0ff}

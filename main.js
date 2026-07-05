@@ -73,7 +73,7 @@
       if (!email || !email.value || !email.checkValidity()) { if (email) email.reportValidity(); return; }
       if (wf.querySelector('input[name="_gotcha"]').value) return; // honeypot: silent drop
 
-      function showOk() { if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); } wf.reset(); }
+      function showOk() { if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); } if (window.gtag) gtag("event", "sign_up", { method: "waitlist" }); wf.reset(); }
 
       if (!WAITLIST_ENDPOINT) {
         // Not configured yet — hand off to the mail app (real, reaches support@)
@@ -100,6 +100,37 @@
         });
     });
   }
+
+  /* ---- Analytics: consent-gated GA4 (no cookies/tracking until the visitor accepts) ---- */
+  (function () {
+    var GA_ID = "G-SDLBLMZ1XJ";
+    var KEY = "safer_analytics_consent";
+    function loadGA() {
+      if (window.__ga) return; window.__ga = true;
+      var s = document.createElement("script"); s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", GA_ID);
+    }
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+    if (choice === "granted") { loadGA(); return; }
+    if (choice === "denied") { return; }
+    var bar = document.createElement("div");
+    bar.className = "cookie-bar";
+    bar.innerHTML = '<span>We use cookies to measure site traffic. See our <a href="privacy.html">Privacy Policy</a>.</span>' +
+      '<span class="cookie-actions"><button type="button" class="cb-decline">Decline</button><button type="button" class="cb-accept">Accept</button></span>';
+    document.body.appendChild(bar);
+    bar.querySelector(".cb-accept").addEventListener("click", function () {
+      try { localStorage.setItem(KEY, "granted"); } catch (e) {} loadGA(); bar.remove();
+    });
+    bar.querySelector(".cb-decline").addEventListener("click", function () {
+      try { localStorage.setItem(KEY, "denied"); } catch (e) {} bar.remove();
+    });
+  })();
 
   /* Contact / GDPR / delete forms — build a REAL mailto so nothing is silently dropped */
   document.querySelectorAll("form[data-mailto]").forEach(function (form) {
