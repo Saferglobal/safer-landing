@@ -815,3 +815,39 @@ section[id]{scroll-margin-top:92px}
   .hero-notify{justify-content:center;margin-inline:auto}
   .hero-copy .form-note{justify-content:center;margin-inline:auto}
 }
+
+/* ==========================================================================
+   Floating mobile CTA — Life360-style, does not take layout space
+   ========================================================================== */
+.floating-cta {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 95;
+  align-items: center;
+  gap: 9px;
+  background: var(--blue-600);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 15px 30px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 12px 30px rgba(47,107,255,.42), 0 2px 8px rgba(16,35,63,.18);
+  white-space: nowrap;
+  animation: floatCtaIn .5s ease .3s both;
+}
+.floating-cta svg { width: 20px; height: 20px; flex: none; }
+.floating-cta:active { transform: translateX(-50%) scale(.97); }
+@keyframes floatCtaIn { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%); } }
+
+@media (max-width: 720px) {
+  .floating-cta { display: inline-flex; }
+  .hero-cta-inline { display: none; }        /* mobile: CTA floats, doesn't take space */
+  body { padding-bottom: 76px; }             /* room so the button never hides footer text */
+}
+@media (prefers-reduced-motion: reduce) { .floating-cta { animation: none; } }
+
+/* Lift the floating CTA above the cookie bar while it's visible, drop back when dismissed */
+body:has(.cookie-bar) .floating-cta { bottom: calc(166px + env(safe-area-inset-bottom)); }

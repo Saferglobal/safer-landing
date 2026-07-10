@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safer Pilot — Welcome, tester · How to get the app</title>
+  <meta name="description" content="You're on the Safer pilot. Install the app through TestFlight, set it up, and learn how to use SOS and Watch Me — in a few simple steps." />
+  <meta name="theme-color" content="#2f6bff" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="assets/orb.png" />
+  <link rel="apple-touch-icon" href="assets/orb.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* pilot-only helpers, built on the existing design tokens */
+    .pilot-hero .btn { margin-top: 6px; }
+    .pilot-note {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: #fff; border: 1px solid var(--line); border-radius: var(--r-md);
+      padding: 16px 18px; box-shadow: var(--shadow-sm); margin-top: 18px;
+      font-size: .95rem; color: var(--ink-soft); text-align: left;
+    }
+    .pilot-note svg { width: 20px; height: 20px; flex: none; color: var(--blue-600); margin-top: 1px; }
+    .pilot-note b { color: var(--blue-900); }
+    .step-checks { display: grid; gap: 10px; margin-top: 4px; }
+    .step-checks li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink-soft); line-height: 1.5; }
+    .step-checks svg { width: 18px; height: 18px; flex: none; color: var(--green); margin-top: 3px; }
+    .step-checks b { color: var(--blue-900); }
+    .uc-point .btn { margin-top: 18px; width: 100%; }
+    .feat-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 48px; }
+    .feat-card { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--line);
+      border-radius: var(--r-lg); padding: 22px; box-shadow: var(--shadow-sm); }
+    .feat-card .fic { width: 48px; height: 48px; border-radius: 14px; flex: none; display: grid; place-items: center;
+      background: var(--blue-050); color: var(--blue-600); }
+    .feat-card.sos .fic { background: rgba(255,107,87,.14); color: var(--coral); }
+    .feat-card.safe .fic { background: rgba(31,179,122,.14); color: var(--green); }
+    .feat-card .fic svg { width: 24px; height: 24px; }
+    .feat-card h3 { font-size: 1.1rem; color: var(--blue-900); margin-bottom: 4px; }
+    .feat-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.5; margin: 0; }
+    .callout-box { display: flex; gap: 14px; align-items: flex-start; max-width: 780px; margin: 40px auto 0;
+      background: var(--blue-050); border: 1px solid var(--blue-100); border-radius: var(--r-lg); padding: 24px 26px; }
+    .callout-box .cic { width: 40px; height: 40px; border-radius: 12px; flex: none; display: grid; place-items: center;
+      background: rgba(255,107,87,.14); color: var(--coral); }
+    .callout-box .cic svg { width: 22px; height: 22px; }
+    .callout-box h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .callout-box ul { display: grid; gap: 8px; }
+    .callout-box li { color: var(--ink-soft); line-height: 1.5; position: relative; padding-left: 18px; }
+    .callout-box li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); }
+    .callout-box li b { color: var(--blue-900); }
+    @media (max-width: 620px) { .feat-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Safer home">
+        <img class="orb" src="assets/orb.png" alt="" width="40" height="40" />
+        Safer
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html#watch-me" class="nav-link">How Safer Works</a></li>
+        <li class="nav-item"><a href="faq.html" class="nav-link">Common Questions</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://testflight.apple.com/join/eVrVv2zV" class="btn btn--primary nav-cta">Join the pilot</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero pilot-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+            Private pilot · iPhone
+          </span>
+          <h1 class="h-hero">You're on the pilot.</h1>
+          <p class="hero-kicker">Thank you for helping us watch over people.</p>
+          <p class="lead">You're one of the very first to test Safer. It takes about 3 minutes to get the app and set it up — here's exactly how.</p>
+          <a href="https://testflight.apple.com/join/eVrVv2zV" class="btn btn--primary btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 8.4-7 9.8-3.9-1.4-7-5.2-7-9.8V6l7-3z"/><path d="M9.2 12l2 2 3.6-4"/></svg>
+            Join the pilot
+          </a>
+          <div class="pilot-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+            <span>Open this page <b>on your iPhone</b> — the pilot is iOS only for now. On a computer? Text yourself the link.</span>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="glow"></div>
+          <div class="float-card fc-1">
+            <span class="fc-ic" style="background:rgba(31,179,122,.14);color:#1fb37a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><small>Watch Me</small><strong>Session active</strong></div>
+          </div>
+          <div class="float-card fc-2">
+            <span class="fc-ic" style="background:rgba(47,107,255,.14);color:#2f6bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg></span>
+            <div><small>Live location</small><strong>Shared with 3</strong></div>
+          </div>
+          <div class="float-card fc-3">
+            <span class="fc-ic" style="background:rgba(255,107,87,.14);color:#ff6b57"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><small>Trusted circle</small><strong>Alerted instantly</strong></div>
+          </div>
+          <div class="char-wrap" data-char>
+            <img fetchpriority="high" decoding="async" class="char char--breathe" src="assets/char-resting.png" alt="A person relaxed and safe, connected with the people they care about through Safer" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT IS THE PILOT ================= -->
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">The quick version</span>
+          <h2 class="h-2">What is this pilot?</h2>
+        </div>
+        <div class="uc-points">
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 8.4-7 9.8-3.9-1.4-7-5.2-7-9.8V6l7-3z"/></svg></span>
+            <span class="uc-step">Early access</span>
+            <h3>It's the real app, early</h3>
+            <p>You're getting Safer before it reaches the App Store. Everything works — you're helping us make sure it works perfectly.</p>
+          </div>
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></span>
+            <span class="uc-step">Your voice</span>
+            <h3>We want your honest take</h3>
+            <p>Try it, poke at it, tell us what's confusing or slow. There are no wrong answers — every note helps.</p>
+          </div>
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <span class="uc-step">Impact</span>
+            <h3>Your feedback shapes launch</h3>
+            <p>What you tell us over the next few weeks decides what we fix and build before Safer goes public.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GET SET UP — 3 STEPS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Takes about 3 minutes</span>
+          <h2 class="h-2">Get set up in 3 steps.</h2>
+        </div>
+        <div class="uc-points">
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg></span>
+            <span class="uc-step">Step 1</span>
+            <h3>Get TestFlight</h3>
+            <p>Apple shares apps that aren't in the App Store yet through a free app called TestFlight. Install it first — it's made by Apple, and safe.</p>
+            <a href="https://apps.apple.com/app/testflight/id899247664" class="btn btn--ghost">Install TestFlight</a>
+          </div>
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 8.4-7 9.8-3.9-1.4-7-5.2-7-9.8V6l7-3z"/></svg></span>
+            <span class="uc-step">Step 2</span>
+            <h3>Join Safer</h3>
+            <p>Tap the button below on your iPhone. It opens TestFlight — then tap <b>Accept</b> and <b>Install</b> to put Safer on your phone.</p>
+            <a href="https://testflight.apple.com/join/eVrVv2zV" class="btn btn--primary">Join the Safer pilot</a>
+          </div>
+          <div class="uc-point reveal">
+            <span class="uc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 6h2"/></svg></span>
+            <span class="uc-step">Step 3</span>
+            <h3>Open Safer &amp; set up</h3>
+            <ul class="step-checks">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Sign in</b> with Apple or Google.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Say yes to notifications, location &amp; microphone</b> — Safer needs these to alert people and share where you are.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Add your trusted contacts</b> — the people who should hear from you if something's wrong.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW TO USE ================= -->
+    <section class="section section--warm" id="how">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">The 4 things to try</span>
+          <h2 class="h-2">How to use Safer.</h2>
+          <p class="lead">Once you're set up, these are the moments Safer is built for.</p>
+        </div>
+
+        <div class="char-center reveal">
+          <div class="char-wrap" data-char>
+            <img loading="lazy" decoding="async" class="char char--breathe" src="assets/char-watchme.png" alt="A person walking safely, watched over by Safer" />
+          </div>
+        </div>
+
+        <div class="feat-cards">
+          <div class="feat-card sos reveal">
+            <span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5"/><path d="M12 16h.01"/></svg></span>
+            <div><h3>SOS — your instant alarm</h3><p>Press SOS when you feel unsafe. Your trusted contacts get an alert with your live location, right away.</p></div>
+          </div>
+          <div class="feat-card reveal">
+            <span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v3"/></svg></span>
+            <div><h3>Watch Me — hands-free</h3><p>Turn it on when walking home or anywhere that feels off. Safer watches over you and can raise the alarm for you.</p></div>
+          </div>
+          <div class="feat-card reveal">
+            <span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M4 19a5 5 0 0 1 10 0M17 7a2.5 2.5 0 0 1 0 5m3 5a4 4 0 0 0-3-3.9"/></svg></span>
+            <div><h3>Trusted contacts</h3><p>Choose who gets alerted. They'll get a message the moment you need help — so you're never really alone.</p></div>
+          </div>
+          <div class="feat-card safe reveal">
+            <span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4 4 10-10"/></svg></span>
+            <div><h3>"I'm safe"</h3><p>Once you're okay, tap <b>I'm safe</b> to let everyone know the alert is over and you're fine.</p></div>
+          </div>
+        </div>
+
+        <div class="callout-box reveal">
+          <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+          <div>
+            <h3>Please read this first</h3>
+            <ul>
+              <li><b>Tell your contacts you're testing.</b> When you try SOS or Watch Me, real alerts go to real people — let them know first so they don't worry.</li>
+              <li><b>This is a test app, not a replacement for 911.</b> In a real emergency, always call your local emergency number first.</li>
+              <li><b>It's early, so some things may be rough.</b> That's exactly what you're helping us find. Thank you.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEEDBACK CTA ================= -->
+    <section class="section" id="feedback">
+      <div class="container">
+        <div class="cta-final reveal">
+          <span class="eyebrow" style="background:rgba(255,255,255,.16);color:#fff;margin-bottom:20px">Found a bug? Have an idea?</span>
+          <h2 class="h-2">Tell us anything.</h2>
+          <p>Easiest way: in TestFlight, take a screenshot and tap <strong>Share Beta Feedback</strong>. Or just email us — we read every message.</p>
+          <a href="mailto:support@safer.global?subject=Safer%20Pilot%20Feedback" class="btn btn--lg" style="background:#fff;color:var(--blue-700)">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>
+            support@safer.global
+          </a>
+          <p class="disclaimer-line">Safer is a safety communication tool and is not a replacement for emergency services. In a life-threatening emergency, always call your local emergency number first.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <span class="brand"><img class="orb" src="assets/orb.png" alt="" width="40" height="40" />Safer</span>
+          <p>Reach the right people faster when it matters most. Alert, locate, and share real-time context with the people you care about.</p>
+          <p style="margin-top:16px"><a href="https://testflight.apple.com/join/eVrVv2zV" style="color:#cfe0ff;font-weight:700">Join the pilot &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Pilot</h4>
+          <a href="https://testflight.apple.com/join/eVrVv2zV">Join the pilot</a>
+          <a href="#how">How to use Safer</a>
+          <a href="#feedback">Send feedback</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="faq.html">Common Questions</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="safety-disclaimer.html">Safety Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.3a2 2 0 0 1 3.4 0l8 13.4A2 2 0 0 1 20 20H4a2 2 0 0 1-1.7-3.3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span><strong>Important:</strong> Safer is a personal safety communication tool and is not a replacement for emergency services, medical, or law-enforcement response. In a life-threatening emergency, always call your local emergency number (such as 911) first.</span>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Safer Global. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="mailto:support@safer.global" aria-label="Email support@safer.global"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a>
+          <a href="contact.html" aria-label="Contact us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
