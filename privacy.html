@@ -101,7 +101,7 @@
         <h3>Audio data</h3>
         <ul>
           <li><strong>Emergency recordings</strong> — microphone audio is recorded during HELP countdown and emergency events to provide context to responders.</li>
-          <li><strong>Voice detection</strong> — during Watch Me sessions, the microphone listens for your safe word (processed on-device and not stored unless an emergency is triggered).</li>
+          <li><strong>Voice detection</strong> — during Watch Me sessions, the microphone audio is streamed in real time to our secure backend and a cloud speech-recognition provider (Deepgram) to detect your safe word. The audio is processed transiently for transcription and is not retained after processing unless an emergency is triggered, in which case the relevant audio/transcript is saved to your emergency records.</li>
         </ul>
         <h3>Contacts</h3>
         <ul>
@@ -132,6 +132,8 @@
           <li><strong>Firebase (Google)</strong> — authentication, database, file storage, cloud functions.</li>
           <li><strong>Google Maps / Places API</strong> — address lookup and geocoding.</li>
           <li><strong>Anthropic Claude API</strong> — AI chat responses and emergency summaries.</li>
+          <li><strong>Deepgram</strong> — real-time speech-to-text used to detect your safe word during Watch Me sessions (receives streamed microphone audio via our backend).</li>
+          <li><strong>Twilio</strong> — delivery of SMS / WhatsApp messages for phone verification and emergency alerts (receives the destination phone number and message content).</li>
           <li><strong>Apple Sign-In</strong> — authentication on iOS devices.</li>
         </ul>
 
