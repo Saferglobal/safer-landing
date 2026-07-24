@@ -958,3 +958,42 @@ body:has(.cookie-bar) .floating-cta { bottom: calc(166px + env(safe-area-inset-b
   .cm-panel { padding: 18px; }
   .cm-row   { gap: 10px; }
 }
+
+/* --- Community page: horizontal side-scroll for card rows on mobile ---
+   Scoped to .page-community so the shared .uc-points on other use-case
+   pages keeps its normal single-column stack. */
+@media (max-width: 720px) {
+  .page-community .uc-points,
+  .page-community .cm-grid,
+  .page-community .cm-chain,
+  .page-community .cm-shots {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    /* bleed to the screen edges so the next card peeks in */
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 4px var(--gutter) 16px;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: thin;
+  }
+  .page-community .uc-points > *,
+  .page-community .cm-grid > *,
+  .page-community .cm-chain > * {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    margin-top: 0;   /* neutralise any stacked-card top margin */
+  }
+  .page-community .cm-shots > * { flex: 0 0 auto; scroll-snap-align: center; }
+  /* thin brand scrollbar for the rows */
+  .page-community .uc-points::-webkit-scrollbar,
+  .page-community .cm-grid::-webkit-scrollbar,
+  .page-community .cm-chain::-webkit-scrollbar,
+  .page-community .cm-shots::-webkit-scrollbar { height: 6px; }
+  .page-community .uc-points::-webkit-scrollbar-thumb,
+  .page-community .cm-grid::-webkit-scrollbar-thumb,
+  .page-community .cm-chain::-webkit-scrollbar-thumb,
+  .page-community .cm-shots::-webkit-scrollbar-thumb { background: var(--blue-100); border-radius: 99px; }
+}
