@@ -217,6 +217,8 @@
     "Bring Safer to your community.": "Lleva Safer a tu comunidad.",
     "You know who walks home late, who opens the building, who's out visiting families after dark. Safer puts them all inside one safety net — with nothing to install in the building and nothing to buy. Your members simply put the app on their phones, and we'll set it up with you, free to start.": "Sabes quién vuelve caminando tarde, quién abre el edificio, quién sale a visitar familias de noche. Safer los coloca a todos dentro de una misma red de protección, sin instalar nada en el edificio y sin comprar nada. Tus miembros solo instalan la app en sus teléfonos, y lo configuramos contigo, gratis para empezar.",
     "Get my invite": "Quiero mi invitación",
+    "Book a 30-min call": "Agenda una llamada de 30 min",
+    "Prefer email? Get my invite": "¿Prefieres correo? Quiero mi invitación",
     "A member's location is shared only with the circle they chose, and only when they raise an alert or turn on Watch Me — never silently.": "La ubicación de un miembro se comparte solo con el círculo que eligió, y solo cuando da una alerta o activa Watch Me; nunca en silencio.",
     // closing
     "We are each responsible for one another —": "Somos responsables los unos de los otros:",

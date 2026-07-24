@@ -997,3 +997,8 @@ body:has(.cookie-bar) .floating-cta { bottom: calc(166px + env(safe-area-inset-b
   .page-community .cm-chain::-webkit-scrollbar-thumb,
   .page-community .cm-shots::-webkit-scrollbar-thumb { background: var(--blue-100); border-radius: 99px; }
 }
+
+/* Community-leaders dual CTA: primary "Book a call" + email fallback */
+.cm-leaders-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+.cm-leaders-cta .btn { margin-top: 0; }
+@media (max-width: 480px) { .cm-leaders-cta { flex-direction: column; align-items: stretch; } }
