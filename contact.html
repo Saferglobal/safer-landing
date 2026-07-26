@@ -7,13 +7,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://web.safer.global/contact.html" />
   <meta property="og:title" content="Contact Us — Safer" />
-  <meta property="og:description" content="Get in touch with the Safer team." />
+  <meta property="og:description" content="Contact the Safer team — support, privacy and data questions, press and partnerships. A real person replies." />
   <meta property="og:image" content="https://web.safer.global/assets/og-share.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Us — Safer" />
   <meta name="twitter:image" content="https://web.safer.global/assets/og-share.png" />
   <link rel="canonical" href="https://web.safer.global/contact.html" />
-  <meta name="description" content="Get in touch with the Safer team." />
+  <meta name="description" content="Contact the Safer team — support, privacy and data questions, press and partnerships. A real person replies." />
   <meta name="theme-color" content="#2f6bff" />
   <link rel="icon" type="image/png" href="assets/orb.png" />
   <link rel="apple-touch-icon" href="assets/orb.png" />
@@ -69,6 +69,12 @@
     </div>
   </div>
 
+  <!-- ============ FLOATING MOBILE CTA ============ -->
+  <a href="index.html#notify" class="floating-cta" aria-label="Get early access to Safer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 8.4-7 9.8-3.9-1.4-7-5.2-7-9.8V6l7-3z"/><path d="M9.2 12l2 2 3.6-4"/></svg>
+    Get Early Access
+  </a>
+
   <main>
     <section class="page-hero">
       <div class="container">
@@ -95,14 +101,14 @@
           <div class="contact-card">
             <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
             <h3>Press &amp; partnerships</h3>
-            <p>Media, community, and partnership enquiries.</p>
+            <p>Media, community, and partnership inquiries.</p>
             <a href="mailto:support@safer.global?subject=Press%20%2F%20Partnership">support@safer.global</a>
           </div>
         </div>
 
         <h2 style="margin-top:44px">Send us a message</h2>
         <div class="form-card" style="max-width:640px">
-          <form data-mailto="support@safer.global" data-subject="Website contact">
+          <form data-formsubmit="https://formsubmit.co/ajax/support@safer.global">
             <div class="field">
               <label for="c-name">Your name</label>
               <input type="text" id="c-name" name="name" required placeholder="Jane Doe" />
@@ -115,10 +121,18 @@
               <label for="c-msg">Message</label>
               <textarea id="c-msg" name="message" required placeholder="How can we help?"></textarea>
             </div>
+            <input type="hidden" name="_subject" value="New Safer contact message" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0" />
             <button type="submit" class="btn btn--primary btn--lg" style="width:100%">Send message</button>
-            <p class="form-note" hidden role="status" style="background:var(--blue-050);border-color:var(--blue-100);color:var(--blue-700)">
+            <p class="form-note" hidden role="status" style="background:#e9f7ef;border-color:#bfe6d2;color:#12603f">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Thanks! Your message is ready to send from your email app — we'll get back to you soon.
+              Thanks! Your message is on its way — we'll get back to you soon.
+            </p>
+            <p class="form-note form-error" hidden role="alert" style="background:#fdecea;border-color:#f6c9c2;color:#a23325">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+              Couldn't send that — please email us directly at support@safer.global.
             </p>
           </form>
         </div>

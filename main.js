@@ -28,6 +28,7 @@
 
   /* FAQ accordion */
   document.querySelectorAll(".faq-q").forEach(function (q) {
+    q.setAttribute("aria-expanded", q.closest(".faq-item").classList.contains("open") ? "true" : "false");
     q.addEventListener("click", function () {
       var item = q.closest(".faq-item");
       var ans = item.querySelector(".faq-a");
@@ -35,9 +36,11 @@
       if (isOpen) {
         item.classList.remove("open");
         ans.style.maxHeight = null;
+        q.setAttribute("aria-expanded", "false");
       } else {
         item.classList.add("open");
         ans.style.maxHeight = ans.scrollHeight + "px";
+        q.setAttribute("aria-expanded", "true");
       }
     });
   });
@@ -133,6 +136,38 @@
       try { localStorage.setItem(KEY, "denied"); } catch (e) {} bar.remove();
     });
   })();
+
+  /* Contact-style forms that POST to FormSubmit (reliable delivery, no mail app needed).
+     Success/error notes are siblings inside the form. */
+  document.querySelectorAll("form[data-formsubmit]").forEach(function (form) {
+    var endpoint = form.getAttribute("data-formsubmit");
+    var ok = form.querySelector(".form-note:not(.form-error)");
+    var err = form.querySelector(".form-error");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (ok) ok.hidden = true;
+      if (err) err.hidden = true;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var honey = form.querySelector('input[name="_gotcha"]');
+      if (honey && honey.value) return; // honeypot
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn ? btn.innerHTML : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      fetch(endpoint, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return {}; }); })
+        .then(function (data) {
+          if (btn) { btn.disabled = false; btn.innerHTML = original; }
+          if (data && String(data.success) === "true") {
+            if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+            form.reset();
+          } else if (err) { err.hidden = false; }
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.innerHTML = original; }
+          if (err) err.hidden = false;
+        });
+    });
+  });
 
   /* Contact / GDPR / delete forms — build a REAL mailto so nothing is silently dropped */
   document.querySelectorAll("form[data-mailto]").forEach(function (form) {
