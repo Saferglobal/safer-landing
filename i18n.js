@@ -148,9 +148,10 @@
 
     // ---- community use-case page ----
     "Safer for communities": "Safer para comunidades",
-    "A panic button on every member's phone.": "Un botón de pánico en el teléfono de cada miembro.",
-    "A member says a safe word, turns on Watch Me, or taps SOS — and their circle instantly gets the alarm with their live location, so the closest person responds in seconds. It protects everyone in your community who installs it, not just one person.": "Un miembro dice una palabra clave, activa Watch Me o toca SOS, y su círculo recibe al instante la alarma con su ubicación en vivo, para que la persona más cercana responda en segundos. Protege a todos en tu comunidad que lo instalen, no solo a una persona.",
-    "Complements your existing security — no hardware, no control room to buy · Free to start · iPhone": "Complementa tu seguridad actual — sin equipos, sin central de control que comprar · Gratis para empezar · iPhone",
+    "One alert.": "Una alerta.",
+    "Everyone knows.": "Todos se enteran.",
+    "Safer raises the alarm the moment you're in trouble — even when you can't reach your phone. And it doesn't protect one person. It protects everyone you add.": "Safer da la alarma en el momento en que estás en peligro, incluso cuando no puedes alcanzar tu teléfono. Y no protege a una sola persona: protege a todos los que agregues.",
+    "No equipment · No control room · Just the app on the phone": "Sin equipos · Sin central de control · Solo la app en el teléfono",
     // live-alert panel
     "Live alert": "Alerta en vivo",
     "Watch Me active · walking home": "Watch Me activo · volviendo a casa",
