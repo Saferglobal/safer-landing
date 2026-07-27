@@ -148,9 +148,8 @@
 
     // ---- community use-case page ----
     "Safer for communities": "Safer para comunidades",
-    "One alert.": "Una alerta.",
-    "Everyone knows.": "Todos se enteran.",
-    "Safer raises the alarm the moment you're in trouble — even when you can't reach your phone. And it doesn't protect one person. It protects everyone you add.": "Safer da la alarma en el momento en que estás en peligro, incluso cuando no puedes alcanzar tu teléfono. Y no protege a una sola persona: protege a todos los que agregues.",
+    "One app that protects your entire community.": "Una app que protege a toda tu comunidad.",
+    "Every member who installs it is covered. A safe word, an SOS tap, or AI \"Watch Me\" sends their live location to your community's own trusted circle and security team — so the closest real person responds in seconds, not a call center.": "Cada miembro que la instala queda protegido. Una palabra clave, un toque de SOS o el \"Watch Me\" con IA envía su ubicación en vivo al círculo de confianza y al equipo de seguridad de tu propia comunidad, para que la persona más cercana responda en segundos, no una central de llamadas.",
     "No equipment · No control room · Just the app on the phone": "Sin equipos · Sin central de control · Solo la app en el teléfono",
     // live-alert panel
     "Live alert": "Alerta en vivo",
