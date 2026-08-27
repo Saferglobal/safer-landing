@@ -844,13 +844,14 @@ section[id]{scroll-margin-top:92px}
 
 @media (max-width: 720px) {
   .floating-cta { display: inline-flex; }
-  .hero-cta-inline { display: none; }        /* mobile: CTA floats, doesn't take space */
+  .hero-cta-inline { display: flex; margin-top: 18px !important; }
+  .hero-cta-inline .btn { width: 100%; justify-content: center; }
   body { padding-bottom: 76px; }             /* room so the button never hides footer text */
 }
 @media (prefers-reduced-motion: reduce) { .floating-cta { animation: none; } }
 
 /* Lift the floating CTA above the cookie bar while it's visible, drop back when dismissed */
-body:has(.cookie-bar) .floating-cta { bottom: calc(166px + env(safe-area-inset-bottom)); }
+body:has(.cookie-bar) .floating-cta { display: none; }
 
 /* ==========================================================================
    Community use-case page (usecase-community.html)
