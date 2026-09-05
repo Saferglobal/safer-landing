@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('file:///Users/yonatanzlit/safer-landing/assets/fonts/inter-var.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #f4efe9;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- headline block (locked template scale/position) ---- */
+  .headline {
+    position: absolute;
+    left: 76px; top: 176px;
+    color: #0a1f44;
+    font-weight: 860;
+    font-size: 176px;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    z-index: 3;
+  }
+  .headline .l2 { letter-spacing: -0.052em; }  /* YOUR PEOPLE runs wide — tighten to fit */
+  .headline .dot { margin-left: -0.1em; }      /* W's slope opens a visual gap — pull the period in hard.
+                                                  TEMPLATE RULE: every headline period is a .dot span; tuck
+                                                  -0.045em after flat letters (E), -0.1em after sloped (W, V) */
+  .sub {
+    position: absolute;
+    left: 82px; top: 892px;
+    max-width: 470px;
+    color: #5a6784;
+    font-weight: 520;
+    font-size: 34px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    z-index: 3;
+  }
+
+  /* ---- rough coral doodle underline beneath ONE TAP. ---- */
+  .underline {
+    position: absolute;
+    left: 78px; top: 336px;
+    width: 700px; height: 26px;
+    z-index: 3;
+  }
+
+  /* ---- character: foot on SOS, lower-right two-thirds, LARGE ---- */
+  .char {
+    position: absolute;
+    left: 462px; top: 578px;
+    width: 604px;              /* 604 x 633 — bottom 1211, inside safe square */
+    z-index: 2;
+    filter: drop-shadow(0 18px 40px rgba(16,35,63,.10));
+  }
+
+  /* ---- thin coral signal arcs rippling up-right from the SOS button ---- */
+  .arc {
+    position: absolute;
+    border: 6px solid transparent;
+    border-top-color: #ff6b57;
+    border-right-color: #ff6b57;
+    border-radius: 50%;
+    transform: rotate(-18deg);
+    z-index: 1;
+    opacity: .95;
+  }
+  .arc.a1 { left: 818px; top: 850px; width: 130px; height: 130px; }
+  .arc.a2 { left: 800px; top: 806px; width: 210px; height: 210px; opacity: .8; }
+  .arc.a3 { left: 782px; top: 762px; width: 290px; height: 290px; opacity: .65; }
+
+  /* ---- shared lockup: pixel-identical to Posts 1-2 ---- */
+  .lockup {
+    position: absolute;
+    left: 76px; top: 1108px;
+    display: flex; align-items: center; gap: 16px;
+    z-index: 3;
+  }
+  .lockup img {
+    width: 64px; height: 64px;
+    filter: drop-shadow(0 5px 12px rgba(47,107,255,.45));
+  }
+  .lockup span {
+    color: #0a1f44;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="arc a1"></div>
+  <div class="arc a2"></div>
+  <div class="arc a3"></div>
+  <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/char-sos.png" alt="">
+  <div class="headline">ONE TAP.<br><span class="l2">YOUR PEOPLE</span><br>KNOW<span class="dot">.</span></div>
+  <svg class="underline" viewBox="0 0 700 26" fill="none">
+    <path d="M6 16 C 120 8, 260 20, 380 13 S 620 10, 694 15"
+          stroke="#ff6b57" stroke-width="13" stroke-linecap="round"/>
+  </svg>
+  <div class="sub">Live location to your people &mdash; app, WhatsApp, SMS.</div>
+  <div class="lockup">
+    <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
+    <span>Safer</span>
+  </div>
+</body>
+</html>

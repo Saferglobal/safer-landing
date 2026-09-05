@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('file:///Users/yonatanzlit/safer-landing/assets/fonts/inter-var.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #e7efff;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- headline block (locked template: same scale/position as Post 1) ---- */
+  .headline {
+    position: absolute;
+    left: 76px; top: 176px;
+    color: #0a1f44;
+    font-weight: 860;
+    font-size: 176px;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    z-index: 3;
+  }
+  .headline .blue { color: #2f6bff; letter-spacing: -0.05em; }
+  .sub {
+    position: absolute;
+    left: 82px; top: 742px;
+    max-width: 460px;
+    color: #5a6784;
+    font-weight: 520;
+    font-size: 34px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    z-index: 3;
+  }
+
+  /* ---- character: sit-walk, center-right, large (matches Post 1 char scale) ---- */
+  .char {
+    position: absolute;
+    left: 452px; top: 560px;
+    width: 590px;              /* 590 x 649 — bottom 1209, inside safe square */
+    z-index: 2;
+  }
+
+  /* ---- orb a step behind her at shoulder height — walking her home ---- */
+  .orb-companion {
+    position: absolute;
+    left: 536px; top: 852px;
+    width: 128px; height: 128px;
+    z-index: 1;
+    filter: drop-shadow(0 10px 24px rgba(47,107,255,.35));
+  }
+  /* hand-drawn motion dashes trailing the orb (match doodle speckles in the asset) */
+  .dash {
+    position: absolute;
+    height: 7px;
+    background: #16233f;
+    border-radius: 4px;
+    opacity: .75;
+    z-index: 1;
+  }
+  .dash.d1 { left: 462px; top: 888px; width: 34px; transform: rotate(-8deg); }
+  .dash.d2 { left: 444px; top: 922px; width: 46px; transform: rotate(-4deg); }
+  .dash.d3 { left: 468px; top: 956px; width: 30px; transform: rotate(6deg); }
+
+  /* ---- UI chip (full-view-only): site hero-chip style, floating by her phone ---- */
+  .chip {
+    position: absolute;
+    left: 668px; top: 950px;
+    display: flex; align-items: center; gap: 11px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px 22px;
+    box-shadow: 0 8px 24px rgba(16,35,63,.12);
+    color: #0a1f44;
+    font-weight: 640;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    z-index: 4;
+    white-space: nowrap;
+  }
+  .chip .dot {
+    width: 13px; height: 13px;
+    background: #1fb37a;
+    border-radius: 50%;
+    flex: none;
+  }
+  .chip .sep { color: #5a6784; font-weight: 500; }
+
+  /* ---- shared lockup: pixel-identical to Post 1 ---- */
+  .lockup {
+    position: absolute;
+    left: 76px; top: 1108px;
+    display: flex; align-items: center; gap: 16px;
+    z-index: 3;
+  }
+  .lockup img {
+    width: 64px; height: 64px;
+    filter: drop-shadow(0 5px 12px rgba(47,107,255,.45));
+  }
+  .lockup span {
+    color: #0a1f44;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="dash d1"></div>
+  <div class="dash d2"></div>
+  <div class="dash d3"></div>
+  <img class="orb-companion" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
+  <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/sit-walk.png" alt="">
+  <div class="chip"><span class="dot"></span>Watch Me <span class="sep">&middot;</span> Session active</div>
+  <div class="headline">WALKING<br>HOME?<br><span class="blue">WATCH ME.</span></div>
+  <div class="sub">Safer watches over you until you say you&rsquo;re safe.</div>
+  <div class="lockup">
+    <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
+    <span>Safer</span>
+  </div>
+</body>
+</html>

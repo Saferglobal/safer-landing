@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('file:///Users/yonatanzlit/safer-landing/assets/fonts/inter-var.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #fbf9f6;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- headline block (locked template scale/position) ---- */
+  .headline {
+    position: absolute;
+    left: 76px; top: 176px;
+    color: #0a1f44;
+    font-weight: 860;
+    font-size: 176px;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    z-index: 3;
+  }
+  .headline .blue { color: #2f6bff; }
+  .headline .dot { margin-left: -0.045em; }  /* template rule: tuck after flat E */
+  .sub {
+    position: absolute;
+    left: 82px; top: 742px;
+    max-width: 470px;
+    color: #5a6784;
+    font-weight: 520;
+    font-size: 34px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    z-index: 3;
+  }
+
+  /* ---- the runner, center-right, Post 1 character weight ---- */
+  .char {
+    position: absolute;
+    left: 342px; top: 472px;
+    width: 874px;              /* drawn figure ~x560-950, y600-1208 — inside safe square */
+    z-index: 2;
+  }
+
+  /* ---- companion orb pacing a HALF-STEP AHEAD at chest height ---- */
+  .orb-companion {
+    position: absolute;
+    left: 940px; top: 828px;
+    width: 128px; height: 128px;
+    z-index: 1;
+    filter: drop-shadow(0 10px 24px rgba(47,107,255,.35));
+  }
+  /* thin motion dashes trailing BEHIND the orb (it sets the pace) */
+  .dash {
+    position: absolute;
+    height: 7px;
+    background: #16233f;
+    border-radius: 4px;
+    opacity: .75;
+    z-index: 1;
+  }
+  .dash.d1 { left: 928px; top: 762px; width: 36px; transform: rotate(-12deg); }
+  .dash.d2 { left: 908px; top: 732px; width: 44px; transform: rotate(-8deg); }
+  .dash.d3 { left: 946px; top: 792px; width: 28px; transform: rotate(-16deg); }
+
+  /* ---- shared lockup: pixel-identical to Posts 1-4 ---- */
+  .lockup {
+    position: absolute;
+    left: 76px; top: 1108px;
+    display: flex; align-items: center; gap: 16px;
+    z-index: 3;
+  }
+  .lockup img {
+    width: 64px; height: 64px;
+    filter: drop-shadow(0 5px 12px rgba(47,107,255,.45));
+  }
+  .lockup span {
+    color: #0a1f44;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="dash d1"></div>
+  <div class="dash d2"></div>
+  <div class="dash d3"></div>
+  <img class="orb-companion" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
+  <img class="char" src="file:///private/tmp/claude-501/-Users-yonatanzlit/eac6a763-5e18-4461-b2e5-6b2ae0e98596/scratchpad/ig/sit-run-clean.png" alt="">
+  <div class="headline">ON A RUN?<br><span class="blue">NOT</span><br><span class="blue">ALONE<span class="dot">.</span></span></div>
+  <div class="sub">Safer watches over your run &mdash; until you say you&rsquo;re back.</div>
+  <div class="lockup">
+    <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
+    <span>Safer</span>
+  </div>
+</body>
+</html>
