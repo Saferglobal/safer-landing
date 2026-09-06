@@ -257,3 +257,30 @@ Publish checklist (final):
 4. Before ANY seventh post: plan its background hue and role, re-run the grid math, and bring it through both watcher gates. The 2×3 grid above is a designed artifact; post 7 changes it.
 
 — Social media watcher, six-post run closed.
+
+---
+
+## PERFECTION PASS VERDICT: PERFECT — ZERO OUTSTANDING NOTES
+
+Fresh strict re-judgement of all six re-renders (`post1-6.png`, `post1-6_thumb110.png`, `_grid_big.png`). Nothing is parked as "non-blocking" this time; anything I could still name is listed, and there is nothing.
+
+### Open ruling requested — P2's "WATCH ME." right margin: **KEEP as-is.**
+51px right vs 84px left, with a terminal period as the last mark. Ruling to keep, on three grounds: (a) the asymmetry is measurable but not *visible* — 33px on a 1080 canvas is 3% of width, and at feed size it is under 15px; (b) a terminal period is exactly the mark that *should* hang slightly past the optical margin, so the near-flush right edge is typographically correct rather than sloppy; (c) it is the tile's punchline and the widest line of its stack — near-full-bleed is the kesef device working as intended, and the only ways to "fix" it would be shrinking the type (violates the scale lock) or forcing a worse break. This is a deliberate design decision, and it is the right one. Closed — do not revisit.
+
+### Fixes verified on pixels
+- **P3 — both collisions genuinely resolved, and the tighter tracking reads deliberate.** "KNOW." now has clear air around the period; "PEOPLE" clears the bun with visible white between the E and the spiral, reading as the character standing just behind the type — the same type-meets-art relationship already established by P1 (hand behind "ALONE.") and P4 (ring behind "CIRCLE."), so it is consistent, not a near-miss. On the tracking: lines 2–4 are set as one tighter block and are even *with each other*, and the coral underline separates line 1 so no direct comparison is invited. It reads as a deliberately set three-line block. Good catch by the designer — both defects were real and both survived my earlier passes; the fixes are clean.
+- **P4 — ring masked behind "CIRCLE." works.** Type now sits in clean air, the stroke break reads as intentional kesef craft, both ring avatars are one doodle style, "YOUR" optically aligned.
+- **P6 — sub-line swap is a genuine improvement.** "Your location is yours — your circle, your terms." kills the shared/shared echo and, better, ties this tile's vocabulary to P4's "one circle" — the set's language now compounds across tiles. My last standing note is closed by this change. Toggle at 4px track is cleaner.
+- **P5 — cloth element and speck gone; edge is clean on cream.** Orb still paces ahead correctly.
+- **Cross-set — verified:** three terminal marks tucked (P2/P3/P4), lockup pixel-identical on all six, 24 headline lines optically aligned. P1 unchanged and correct.
+- **All six 110px thumbs re-checked:** every headline dominant and readable, nothing competing, all sub-lines and chips degrading to texture as designed.
+
+### Grid proof (`_grid_big.png`) — confirmed
+Two-axis cream/blue checkerboard holds; P3's coral is the only warm accent in six tiles and sits dead-center of the bottom row; type system and lockup identical throughout; the mixed illustration weights (chunky at positions 1/4/6, thin-line at 2/3/5) scatter rather than cluster, so the set reads as varied illustration, not inconsistency. Column 1 reading as the two question-form blue-answer tiles is a bonus rhyme.
+
+### Nothing outstanding
+No collisions, no tangencies that read as errors, no claim or caption issues, no thumbnail failures, no system deviations. The previously recorded existing-asset style variance is settled brand-side and works in the grid; it is not reopened.
+
+**The six-post set is finished. Ship it.** Publish order for the new wave stands: P6 first, then P5. Only live gate remaining is operational — confirm the bio link resolves to the early-access page before publishing.
+
+— Social media watcher, perfection pass closed. PERFECT.

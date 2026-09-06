@@ -29,7 +29,17 @@
     z-index: 3;
   }
   .headline .blue { color: #2f6bff; }
-  .headline .dot { margin-left: -0.045em; }  /* template rule: tuck after flat E */
+  /* TEMPLATE — terminal-mark tuck (see post1.html for the full rule) */
+  .headline .dot   { margin-left: -0.045em; }
+  .headline .dot-w { margin-left: -0.1em; }
+  .headline .dot-p { margin-left: -0.075em; }
+  .headline .com   { margin-left: -0.09em; }
+
+  /* TEMPLATE — optical left-alignment: flat stems are the reference edge,
+     rounds hang left, diagonals trim back, Y needs the most */
+  .headline .o-r { margin-left: -2px; }
+  .headline .o-d { margin-left: -1px; }
+  .headline .o-y { margin-left: -6px; }
   .sub {
     position: absolute;
     left: 82px; top: 742px;
@@ -96,7 +106,7 @@
   <div class="dash d3"></div>
   <img class="orb-companion" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
   <img class="char" src="file:///private/tmp/claude-501/-Users-yonatanzlit/eac6a763-5e18-4461-b2e5-6b2ae0e98596/scratchpad/ig/sit-run-clean.png" alt="">
-  <div class="headline">ON A RUN?<br><span class="blue">NOT</span><br><span class="blue">ALONE<span class="dot">.</span></span></div>
+  <div class="headline"><span class="o-r">ON A RUN?</span><br><span class="blue o-d">NOT</span><br><span class="blue o-d">ALONE<span class="dot">.</span></span></div>
   <div class="sub">Safer watches over your run &mdash; until you say you&rsquo;re back.</div>
   <div class="lockup">
     <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">

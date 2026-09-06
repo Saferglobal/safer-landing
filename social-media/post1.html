@@ -38,7 +38,27 @@
     z-index: 3;
   }
   .headline .walk { letter-spacing: -0.048em; }   /* A/L/K sit wide — optically match NEVER/ALONE */
-  .headline .dot  { margin-left: -0.045em; }      /* tuck the period against the E */
+
+  /* TEMPLATE — terminal-mark tuck. The eye wants the mark to belong to the last
+     letter, so how far it tucks depends on what precedes it:
+       .dot   after a flat stem (E H L N D)      -0.045em
+       .dot-w after a slope (W V A Y)            -0.1em
+       .dot-p after P (bowl leaves baseline open) -0.075em
+       .com   comma after a slope                -0.09em                        */
+  .headline .dot   { margin-left: -0.045em; }
+  .headline .dot-w { margin-left: -0.1em; }
+  .headline .dot-p { margin-left: -0.075em; }
+  .headline .com   { margin-left: -0.09em; }
+
+  /* TEMPLATE — optical left-alignment. The eye reads a letter's MASS, not its
+     furthest ink point, so a flush-left stack is not a flush-left margin:
+       flat-stem initials (N H F K P E) = the reference edge, 0
+       round initials (O C S G) hang left, or the curve reads inset
+       diagonal initials (W A V) trim back to the same optical edge
+       Y needs the most — a thin apex reaches left while all its mass sits right */
+  .headline .o-r { margin-left: -2px; }
+  .headline .o-d { margin-left: -1px; }
+  .headline .o-y { margin-left: -6px; }
   .sub {
     position: absolute;
     left: 82px; top: 742px;
@@ -92,7 +112,7 @@
   <div class="blob"></div>
   <img class="orb-companion" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
   <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/char-watchme.png" alt="">
-  <div class="headline">NEVER<br><span class="walk">WALK</span><br>ALONE<span class="dot">.</span></div>
+  <div class="headline">NEVER<br><span class="walk o-d">WALK</span><br><span class="o-d">ALONE<span class="dot">.</span></span></div>
   <div class="sub">When you can&rsquo;t reach them, Safer does.</div>
   <div class="lockup">
     <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">

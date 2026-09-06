@@ -28,7 +28,17 @@
     letter-spacing: -0.035em;
     z-index: 3;
   }
-  .headline .dot { margin-left: -0.045em; }  /* template rule: tuck the period (flat E before it) */
+  /* TEMPLATE — terminal-mark tuck (see post1.html for the full rule) */
+  .headline .dot   { margin-left: -0.045em; }
+  .headline .dot-w { margin-left: -0.1em; }
+  .headline .dot-p { margin-left: -0.075em; }
+  .headline .com   { margin-left: -0.09em; }
+
+  /* TEMPLATE — optical left-alignment: flat stems are the reference edge,
+     rounds hang left, diagonals trim back, Y needs the most */
+  .headline .o-r { margin-left: -2px; }
+  .headline .o-d { margin-left: -1px; }
+  .headline .o-y { margin-left: -6px; }
   .sub {
     position: absolute;
     left: 82px; top: 1024px;
@@ -84,14 +94,7 @@
     border-bottom-color: #16233f;
     border-radius: 50%;
   }
-  .avatar .bun {
-    position: absolute;
-    left: 19px; top: -14px;
-    width: 14px; height: 14px;
-    border: 4px solid #16233f;
-    border-radius: 50%;
-    background: #f2f6ff;
-  }
+  /* both avatars are built from the same three parts — one doodle style, no variants */
 
   /* ---- the orb, a member of the circle, ON the ring ---- */
   .orb-member {
@@ -123,17 +126,27 @@
 </head>
 <body>
   <svg class="ring" viewBox="0 0 470 470" fill="none">
-    <!-- hand-drawn feel: wobbled circle (r~195) with a small sketch gap + overlap stroke -->
-    <path d="M 235 40 C 341 38, 432 125, 430 235 C 428 344, 342 432, 235 430 C 128 428, 42 342, 40 235 C 38 130, 118 46, 218 40"
-          stroke="#2f6bff" stroke-width="6" stroke-linecap="round"/>
-    <path d="M 205 44 C 178 49, 152 60, 128 78"
-          stroke="#2f6bff" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+    <defs>
+      <!-- the ring passes behind the headline: break the stroke where "CIRCLE." crosses,
+           so the type sits in clean air and the circle still reads as one drawn gesture -->
+      <mask id="ringbreak">
+        <rect width="470" height="470" fill="white"/>
+        <rect x="0" y="181" width="132" height="158" fill="black"/>
+      </mask>
+    </defs>
+    <g mask="url(#ringbreak)">
+      <!-- hand-drawn feel: wobbled circle (r~195) with a small sketch gap + overlap stroke -->
+      <path d="M 235 40 C 341 38, 432 125, 430 235 C 428 344, 342 432, 235 430 C 128 428, 42 342, 40 235 C 38 130, 118 46, 218 40"
+            stroke="#2f6bff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 205 44 C 178 49, 152 60, 128 78"
+            stroke="#2f6bff" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+    </g>
   </svg>
   <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/sit-kids.png" alt="">
-  <div class="avatar mom"><span class="bun"></span><span class="eye l"></span><span class="eye r"></span><span class="smile"></span></div>
+  <div class="avatar mom"><span class="eye l"></span><span class="eye r"></span><span class="smile"></span></div>
   <div class="avatar dad"><span class="eye l"></span><span class="eye r"></span><span class="smile"></span></div>
   <img class="orb-member" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
-  <div class="headline">YOUR<br>WHOLE<br>FAMILY,<br>ONE<br>CIRCLE<span class="dot">.</span></div>
+  <div class="headline"><span class="o-y">YOUR</span><br><span class="o-d">WHOLE</span><br>FAMILY<span class="com">,</span><br><span class="o-r">ONE</span><br><span class="o-r">CIRCLE<span class="dot">.</span></span></div>
   <div class="sub">Know they got home &mdash; without hovering.</div>
   <div class="lockup">
     <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">

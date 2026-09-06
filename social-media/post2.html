@@ -29,6 +29,18 @@
     z-index: 3;
   }
   .headline .blue { color: #2f6bff; letter-spacing: -0.05em; }
+
+  /* TEMPLATE — terminal-mark tuck (see post1.html for the full rule) */
+  .headline .dot   { margin-left: -0.045em; }
+  .headline .dot-w { margin-left: -0.1em; }
+  .headline .dot-p { margin-left: -0.075em; }
+  .headline .com   { margin-left: -0.09em; }
+
+  /* TEMPLATE — optical left-alignment: flat stems are the reference edge,
+     rounds hang left, diagonals trim back, Y needs the most */
+  .headline .o-r { margin-left: -2px; }
+  .headline .o-d { margin-left: -1px; }
+  .headline .o-y { margin-left: -6px; }
   .sub {
     position: absolute;
     left: 82px; top: 742px;
@@ -120,7 +132,7 @@
   <img class="orb-companion" src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">
   <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/sit-walk.png" alt="">
   <div class="chip"><span class="dot"></span>Watch Me <span class="sep">&middot;</span> Session active</div>
-  <div class="headline">WALKING<br>HOME?<br><span class="blue">WATCH ME.</span></div>
+  <div class="headline"><span class="o-d">WALKING</span><br>HOME?<br><span class="blue o-d">WATCH ME<span class="dot">.</span></span></div>
   <div class="sub">Safer watches over you until you say you&rsquo;re safe.</div>
   <div class="lockup">
     <img src="file:///Users/yonatanzlit/safer-landing/assets/orb.png" alt="">

@@ -236,3 +236,46 @@ Re-checked post6.png, post6_thumb110.png, post6_toggle_zoom4.png, and post5.png 
 - **110px:** the 4-line headline carries the thumb. Pass.
 
 **FINAL SIGN-OFF RESTATED:** the six-post set (P1–P5 as previously approved, P6 in this v2) is brand-approved for publishing in the P6→P5 order, grid P5|P6|P1 / P2|P3|P4. The grid-fragility guardrail remains binding: post 7 requires re-run grid math and a new watcher gate before publishing.
+
+---
+
+## COPY RULING — P6 SUB-LINE SWAP: APPROVE SWAP
+
+Ship **"Your location is yours — your circle, your terms."** in place of "...shared on your terms."
+
+Verification (checked the repo, did not assume):
+- **"circle" is real Safer copy, not borrowed language.** faq.html line 126 and the FAQ schema both read "Inside the app you'll build your **trusted circle** by adding the people who look out for you," and the schema also has "alert your **trusted circle** with your location and context." usecase-family.html's H1 is "Your whole family, one **circle**." So "your circle" is the site's own word for the people you share with.
+- **"your terms" is unchanged** from the sub-line I already verified — it maps to the brief's "share where you are with the people you choose, only when you choose."
+- **Claim-clean:** no new capability, number, or guarantee; naming the recipients as "your circle" is if anything MORE precise about who sees the location, which is the right direction for the consent tile.
+
+Two reasons this is better than the current line, beyond killing the "SHARED/shared" echo:
+1. Headline and sub-line now divide the work instead of overlapping — the headline supplies the verb and the condition ("SHARED ONLY WHEN YOU CHOOSE."), the sub-line supplies the who and the terms ("your circle, your terms"). No word does double duty.
+2. It ties P6 to P4's "ONE CIRCLE." tile, so "circle" reads as Safer's vocabulary across the grid rather than a one-off.
+
+No brand regression, no re-gate needed for this line. Everything else on P6 stays as approved.
+
+---
+
+## PERFECTION PASS VERDICT: PERFECT — ZERO OUTSTANDING NOTES
+
+Re-judged all six tiles fresh at the perfect bar, plus _grid_big.png. I carried no note forward as "cosmetic"; each of my previously parked items was hunted down individually and is gone.
+
+**Every note I ever raised is now closed:**
+- P1 period/hand collision and orb placement — closed (period tucked to the E; her hand reads as intentional depth behind the type, the same layering language as P4's boy in front of "CIRCLE." and P6's bun behind "CHOOSE.").
+- P2 chip grazing the orb halo — closed; chip and orb are now separate objects with clean air between them.
+- P3 detached "KNOW." period and sideways arcs — closed; arcs now ripple up and right off the button, period clear of her sleeve.
+- P4 mismatched ring avatars, "YOUR" alignment, ring weight — all three closed (see below).
+- P5 orphaned white cloth shape — closed; her leading hand is clean on cream with no residual matte.
+- P6 knob overflowing the pill, track weight — closed; knob seated inside, track at 4px sits inside the thin-line family with P4's ring and P3's arcs.
+
+**The four items you asked me to judge specifically:**
+1. **P4 masked ring:** still reads as ONE drawn gesture. The eye closes the circle across the type gap because the visible arc carries more than three-quarters of the sweep and the break falls where the boy already interrupts it — the mask reads as depth, not as a broken stroke. Type now sits in clean air. Stroke stays in the thin-line family; the tile has not gained weight against tiles 1–3.
+2. **P4 avatars:** harmonized to one doodle style — same face size, same two-dot eyes, same mouth. The style mismatch is gone.
+3. **P6 sub-line:** on the tile VERBATIM as I approved it — "Your location is yours — your circle, your terms." The "SHARED/shared" echo is gone; headline supplies verb+condition, sub-line supplies who+terms, no word doing double duty.
+4. **P3 tighter tracking:** stays on-brand. The compression is inside the display face's own comfortable range — it reads as a tighter-set line of the same voice, not a different typographic system, and at grid scale in _grid_big P3 sits as a peer of P1/P2/P4, not an outlier. Coral remains correctly confined to the underline, the arcs, and the asset's SOS button; it is still the only red in all six.
+
+**Full-set checks, all clean:** copy on every tile verbatim-backed by site or brief; zero invented features, numbers, traction claims, or forever-guarantees; zero fear across all six; lockup identical on all six; orb in comfort-state roles on 1/2/4/5/6 and correctly absent from the action tile; every headline alone carries its 110px thumbnail; terminal marks tucked on all six; two-axis checkerboard confirmed in _grid_big with the coral tile dead-center.
+
+I have nothing left to ask for. The six-post set is **perfect** and cleared to publish in the P6→P5 order, grid P5|P6|P1 / P2|P3|P4.
+
+Only standing item, unchanged and not a defect: the grid-fragility guardrail — post 7 shifts every tile, so it requires re-run grid math and a fresh watcher gate before publishing.

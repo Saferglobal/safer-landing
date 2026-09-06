@@ -28,10 +28,22 @@
     letter-spacing: -0.035em;
     z-index: 3;
   }
-  .headline .l2 { letter-spacing: -0.052em; }  /* YOUR PEOPLE runs wide — tighten to fit */
-  .headline .dot { margin-left: -0.1em; }      /* W's slope opens a visual gap — pull the period in hard.
-                                                  TEMPLATE RULE: every headline period is a .dot span; tuck
-                                                  -0.045em after flat letters (E), -0.1em after sloped (W, V) */
+  /* One tight set for the three body lines: they run into the character's column,
+     and Y/O/U/R, P/E/O/P/L/E, K/N/O/W are all wide letters that take it well.
+     The opening line keeps the looser display set — it has the coral rule and clear air. */
+  .headline .tight { letter-spacing: -0.086em; }
+
+  /* TEMPLATE — terminal-mark tuck (see post1.html for the full rule) */
+  .headline .dot   { margin-left: -0.045em; }
+  .headline .dot-w { margin-left: -0.1em; }
+  .headline .dot-p { margin-left: -0.075em; }
+  .headline .com   { margin-left: -0.09em; }
+
+  /* TEMPLATE — optical left-alignment: flat stems are the reference edge,
+     rounds hang left, diagonals trim back, Y needs the most */
+  .headline .o-r { margin-left: -2px; }
+  .headline .o-d { margin-left: -1px; }
+  .headline .o-y { margin-left: -6px; }
   .sub {
     position: absolute;
     left: 82px; top: 892px;
@@ -55,7 +67,7 @@
   /* ---- character: foot on SOS, lower-right two-thirds, LARGE ---- */
   .char {
     position: absolute;
-    left: 462px; top: 578px;
+    left: 468px; top: 578px;
     width: 604px;              /* 604 x 633 — bottom 1211, inside safe square */
     z-index: 2;
     filter: drop-shadow(0 18px 40px rgba(16,35,63,.10));
@@ -100,7 +112,7 @@
   <div class="arc a2"></div>
   <div class="arc a3"></div>
   <img class="char" src="file:///Users/yonatanzlit/safer-landing/assets/char-sos.png" alt="">
-  <div class="headline">ONE TAP.<br><span class="l2">YOUR PEOPLE</span><br>KNOW<span class="dot">.</span></div>
+  <div class="headline"><span class="o-r">ONE TAP<span class="dot-p">.</span></span><br><span class="tight o-y">YOUR</span><br><span class="tight">PEOPLE</span><br><span class="tight">KNOW<span class="dot-w">.</span></span></div>
   <svg class="underline" viewBox="0 0 700 26" fill="none">
     <path d="M6 16 C 120 8, 260 20, 380 13 S 620 10, 694 15"
           stroke="#ff6b57" stroke-width="13" stroke-linecap="round"/>
