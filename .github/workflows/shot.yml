@@ -1,0 +1,25 @@
+name: shot
+on:
+  push:
+    branches: [join-page]
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - run: |
+          (python3 -m http.server 8000 >/dev/null 2>&1 &) ; sleep 2
+          cat > s.mjs <<'JS'
+          import { chromium } from "playwright";
+          const b = await chromium.launch();
+          const p = await b.newPage({ viewport: { width: 390, height: 844 } });
+          await p.goto("http://localhost:8000/join/?c=Ab12Cd34Ef56Gh78Ij90Kl12&n=" + encodeURIComponent("Jewish Community San José"));
+          await p.waitForTimeout(1200); await p.screenshot({ path: "join-phone.png", fullPage: true });
+          await p.click("#lang"); await p.waitForTimeout(500); await p.screenshot({ path: "join-phone-es.png", fullPage: true });
+          await p.goto("http://localhost:8000/join/?c=bad"); await p.waitForTimeout(800); await p.screenshot({ path: "join-bad.png" });
+          await b.close();
+          JS
+          node s.mjs
+      - uses: actions/upload-artifact@v4
+        with: { name: shots, path: "*.png" }

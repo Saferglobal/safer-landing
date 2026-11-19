@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join on Safer</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="You're invited to join a group on Safer." />
+  <link rel="icon" type="image/png" href="/assets/orb.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    body { background: var(--blue-050); }
+    .jn { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
+    .jn-card { width: 100%; max-width: 460px; background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 18px 50px rgba(10,31,68,.10); padding: 32px 24px; text-align: center; }
+    .jn-orb { width: 64px; height: 64px; filter: drop-shadow(0 6px 16px rgba(47,107,255,.45)); }
+    .jn-kicker { margin: 18px 0 6px; color: var(--ink-soft); font-weight: 600; font-size: 1.05rem; }
+    .jn-name { font-size: clamp(1.6rem, 6vw, 2.1rem); margin: 0 0 10px; overflow-wrap: anywhere; }
+    .jn-sub { color: var(--ink-soft); margin: 0 0 26px; font-size: 1.05rem; }
+    .jn-step { text-align: left; border-top: 1px solid var(--line); padding: 20px 0 4px; }
+    .jn-step h2 { font-size: 1.1rem; margin: 0 0 12px; display: flex; gap: 10px; align-items: center; }
+    .jn-num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--blue-900); color: #fff; font-size: .9rem; display: inline-flex; align-items: center; justify-content: center; }
+    .jn .btn { width: 100%; justify-content: center; }
+    .jn-note { color: var(--ink-soft); font-size: .95rem; margin: 10px 0 0; }
+    .jn-code { display: flex; gap: 8px; margin-top: 10px; }
+    .jn-code code { flex: 1; min-width: 0; overflow-wrap: anywhere; background: var(--blue-050); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: .95rem; color: var(--blue-900); text-align: left; }
+    .jn-copy { flex: none; border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 0 14px; font-weight: 700; color: var(--blue-900); cursor: pointer; font: inherit; }
+    .jn-err { color: var(--ink-soft); }
+    .jn-lang { margin-top: 22px; background: none; border: 0; color: var(--ink-soft); font: inherit; text-decoration: underline; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main class="jn">
+    <div class="jn-card">
+      <img class="jn-orb" src="/assets/orb.png" alt="Safer" />
+      <div id="ok" hidden>
+        <p class="jn-kicker" data-t="kicker">You're invited to join</p>
+        <h1 class="jn-name" id="gname">your group</h1>
+        <p class="jn-sub" data-t="sub">on Safer, so the people around you can help in an emergency.</p>
+
+        <section class="jn-step">
+          <h2><span class="jn-num">1</span><span data-t="s1">Get the Safer app</span></h2>
+          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6761288625" data-t="ios">Download for iPhone</a>
+          <p class="jn-note" data-t="android">Android: coming soon.</p>
+        </section>
+
+        <section class="jn-step">
+          <h2><span class="jn-num">2</span><span data-t="s2">Join the group</span></h2>
+          <a class="btn btn--ghost btn--lg" id="open" href="#" data-t="open">I have Safer: join now</a>
+          <p class="jn-note" data-t="paste">If that doesn't open the app: open Safer, go to Groups, tap Join, and paste this code:</p>
+          <div class="jn-code"><code id="code"></code><button class="jn-copy" id="copy" type="button" data-t="copy">Copy</button></div>
+          <p class="jn-note" data-t="approve">The group's manager approves you, then you're in.</p>
+        </section>
+      </div>
+      <div id="bad" hidden>
+        <h1 class="jn-name" data-t="badTitle">This invite link isn't complete</h1>
+        <p class="jn-err" data-t="badBody">Ask the person who sent it for a new link.</p>
+        <a class="btn btn--primary btn--lg" href="/index.html" data-t="home">Go to Safer</a>
+      </div>
+      <button class="jn-lang" id="lang" type="button">Español</button>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var ES = {
+        kicker: "Te invitaron a unirte a", sub: "en Safer, para que la gente a tu alrededor pueda ayudarte en una emergencia.",
+        s1: "Descarga la app Safer", ios: "Descargar para iPhone", android: "Android: muy pronto.",
+        s2: "Únete al grupo", open: "Ya tengo Safer: unirme", copy: "Copiar", copied: "Copiado",
+        paste: "Si no se abre la app: abre Safer, ve a Grupos, toca Unirse y pega este código:",
+        approve: "El administrador del grupo te aprueba y listo.",
+        badTitle: "Este enlace de invitación está incompleto", badBody: "Pide a quien te lo envió un enlace nuevo.", home: "Ir a Safer"
+      };
+      var EN = {}; var els = document.querySelectorAll("[data-t]");
+      els.forEach(function (e) { EN[e.getAttribute("data-t")] = e.textContent; });
+      EN.copied = "Copied";
+      var lang = "en";
+      try { lang = localStorage.getItem("safer_lang") || ((navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en"); } catch (e) {}
+      function apply() {
+        var d = lang === "es" ? ES : EN;
+        els.forEach(function (e) { var k = e.getAttribute("data-t"); if (d[k]) e.textContent = d[k]; });
+        document.documentElement.lang = lang;
+        document.getElementById("lang").textContent = lang === "es" ? "English" : "Español";
+      }
+      document.getElementById("lang").onclick = function () {
+        lang = lang === "es" ? "en" : "es";
+        try { localStorage.setItem("safer_lang", lang); } catch (e) {}
+        apply();
+      };
+
+      var q = new URLSearchParams(location.search);
+      var code = (q.get("c") || "").trim();
+      var name = (q.get("n") || "").trim().slice(0, 80);
+      if (!/^[A-Za-z0-9]{10,64}$/.test(code)) { document.getElementById("bad").hidden = false; apply(); return; }
+      document.getElementById("ok").hidden = false;
+      if (name) { document.getElementById("gname").textContent = name; document.title = name + " · Safer"; }
+      else { document.getElementById("gname").textContent = "Safer"; }
+      document.getElementById("code").textContent = code;
+      document.getElementById("open").href = "safer-global://join/" + code;
+      document.getElementById("copy").onclick = function () {
+        var b = this;
+        try { navigator.clipboard.writeText(code).then(function () { b.textContent = (lang === "es" ? ES : EN).copied; }); } catch (e) {}
+      };
+      apply();
+    })();
+  </script>
+</body>
+</html>
