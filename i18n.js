@@ -12,6 +12,7 @@
     "Resources": "Recursos",
     "Get Early Access": "Acceso anticipado",
     "Download the App": "Descarga la app",
+    "Log in": "Iniciar sesión",
     "Download the app →": "Descarga la app →",
     "Now on the App Store": "Ya en el App Store",
     "Download on the": "Descárgala en el",
